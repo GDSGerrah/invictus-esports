@@ -1,0 +1,36 @@
+/*Import Variables*/
+@import 'variables.css';
+
+
+/*Typography styles*/ 
+
+.heading {
+    font-family: var(--font-heading);
+    font-weight: 900; /* Black */
+  }
+  
+  .subtitle {
+    font-family: var(--font-subtitle);
+    font-weight: normal;
+  }
+  
+  .body-text {
+    font-family: var(--font-body);
+    font-weight: normal;
+  }
+  
+  /* You can add more specific classes as needed */
+  h1, h2 {
+    font-family: var(--font-heading);
+    font-weight: 900;
+  }
+  
+  h3, h4, h5 {
+    font-family: var(--font-subtitle);
+    font-weight: normal;
+  }
+  
+  p, li, a {
+    font-family: var(--font-body);
+    font-weight: normal;
+  }

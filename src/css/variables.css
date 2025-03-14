@@ -1,0 +1,41 @@
+:root {
+
+/*Color Palette*/
+
+--color-primary : #55318C;
+--color-White : #FFFFFF; 
+--color-Dark : #262626;
+
+/* Font Families*/
+
+--font-heading: 'Industry', sans-serif;
+--font-subtitle:'Bebas Neue', sans-serif;
+--font-body: 'SF Pro', sans-serif; 
+
+}
+
+/* Font Face Declarations*/ 
+
+@font-face {
+    font-family: 'Industry';
+    src: url('/public/fonts/IndustryTest-Black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;    
+}
+
+@font-face{
+    font-family: 'Bebas Neue';
+    src: url('/public/fonts/BebasNeue-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face{
+    font-family: 'SF Pro';
+    src: url('/public/fonts/SF-Pro.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
