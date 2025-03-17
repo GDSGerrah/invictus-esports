@@ -18,7 +18,7 @@
     
     @font-face {
         font-family: 'Industry';
-        src: url('../fonts/IndustryTest-Black.otf') format('opentype');
+        src: url('../../public/fonts/IndustryTest-Black.otf') format('opentype');
         font-weight: 900;
         font-style: normal;
         font-display: swap;    
@@ -26,7 +26,7 @@
     
     @font-face{
         font-family: 'Bebas Neue';
-        src: url('../fonts/BebasNeue-Regular.ttf') format('truetype');
+        src: url('../../public/fonts/BebasNeue-Regular.ttf') format('truetype');
         font-weight: normal;
         font-style: normal;
         font-display: swap;
@@ -34,7 +34,7 @@
     
     @font-face{
         font-family: 'SF Pro';
-        src: url('../fonts/SF-Pro.ttf') format('truetype');
+        src: url('../../public/fonts/SF-Pro.ttf') format('truetype');
         font-weight: normal;
         font-style: normal;
         font-display: swap;
