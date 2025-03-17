@@ -301,75 +301,249 @@ body {
 }
 
 
-/*Content Carrousel*/
-.content-carousel-section{
+/* Updated CSS to ensure all three cards are fully visible with proper gaps */
+
+/* Main carousel section */
+.content-carousel-section {
     width: 100%;
-    height: 938px;
+    height: auto;
     background-color: #1E1E1E;
-    padding: 60px 0;
+    padding: 60px 0 82px;
     box-sizing: border-box;
     margin-top: 60px;
+    position: relative;
+    overflow: hidden; /* Prevent horizontal scrollbar */
+
 }
 
-/*Caroussel header*/
-.carousel-header{
+/* Carousel Header */
+.carousel-header {
     max-width: 1920px;
     margin: 0 auto;
-    padding: 0 35px 40px;
+    padding: 0 35px;
     position: relative;
 }
 
-.carousel-title{
-    font: var(--font-heading);
+.carousel-title {
+    font-family: var(--font-heading);
     font-weight: 900;
-    font-size: 60px;
+    font-size: 65px;
+    line-height: 1.1;
     text-align: center;
     text-transform: uppercase;
-    margin-bottom: 40px;
+    margin-bottom: 70px; /* Increased spacing below title */
     letter-spacing: 2px;
+    position: relative;
 }
 
-.title-normal{
+.title-normal {
     color: white;
 }
 
-.title-accent{
-    color: #802EFC;
+.title-accent {
+    color: #8738FF; /* Purple accent color */
 }
 
-.carousel-control{
+.carousel-controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    position: relative;
 }
 
-.carousel-text{
-font-family: var(--font--subtitle);
-font-weight: normal;
-font-size: 25px;
-color:  #FFFFFF;
-text-transform: uppercase;
-position: relative;
-display: inline-block;
+.carousel-text {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 25px;
+    color: white;
+    text-transform: uppercase;
+    position: absolute;
+    left: 20px;
+    top: 0;
+    display: inline-block;
 }
 
-
-.carousel-text::after{
-content: "";
-position: absolute;
-bottom: -10px;
-left: 0;
-width: 400px;
-height: 2px;
-background-color: white;
+.carousel-text::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 400px;
+    width: 900px;
+    height: 2px;
+    background-color: white;
 }
 
-.youtube.btn{
-
+.youtube-btn {
+    background-color: #E31937;
+    color: white;
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 18px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    right: auto; /* Override the right property */
+    left: 1400px;
+    top: -22px;
+    width: fit-content; /* Prevent stretching */
 }
+
+.youtube-btn:hover {
+    background-color: #c1152f;
+}
+
+.filter-container {
+    position: absolute;
+    left: 59px;
+    top: 68px;
+}
+
+.filter-btn {
+    background-color: white;
+    color: black;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.filter-icon {
+    font-size: 12px;
+}
+
+/* Container with exact width calculation for three full cards */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1920px; 
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the track in the container */
+    margin-top: 60px;
+    padding: 0 82px;
+    box-sizing: border-box;
+}
+
+/* Track with exact width for three cards plus gaps */
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 35px; /* Exact 35px gap between cards */
+    width: calc(754px * 3 + 35px * 2); /* Three full cards + two gaps */
+    box-sizing: border-box;
+    position: relative;
+}
+
+.carousel-wrap {
+    position: relative;
+    width: calc(754px * 3 + 35px * 2); /* Exactly 3 cards + 2 gaps */
+    margin: 0 auto;
+    overflow: hidden; /* Double protection for hiding overflow */
+}
+
+/* Card exact dimensions */
+.video-card {
+    width: 754px;
+    height: 425px;
+    flex: 0 0 auto; /* Don't grow or shrink */
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #222; /* Dark background for empty space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Full-size thumbnails */
+.thumbnail-img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: scale-down; /* Scale down to fit but never scale up */
+    border-radius: 5px;
+}
+
+/* Position arrows at the edges */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: #8738FF;
+    color: white;
+    border: none;
+    border-radius: 0;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+    padding: 0;
+}
+
+.carousel-arrow:hover {
+    background-color: #6b20d4;
+}
+
+.prev-arrow {
+    left: 0;
+}
+
+.next-arrow {
+    right: 0;
+}
+
+.arrow-icon {
+    line-height: 1;
+}
+
 
 /* Responsive UI Adjustments */ 
+
+@media (max-width: 1920px) {
+    .carousel-track {
+        width: calc(100% - 100px); /* Adjust for smaller screens */
+    }
+    
+    .video-card {
+        width: calc((100% - 70px) / 3); /* 3 cards with 2 gaps of 35px */
+        height: auto;
+        aspect-ratio: 754/425; /* Maintain aspect ratio */
+    }
+
+    .carousel-title {
+        font-size: 100px;
+    }
+}
+
 @media (max-width: 1800px) {
     .article-card {
         width: 500px;
@@ -389,6 +563,19 @@ background-color: white;
     .article-card {
         width: 450px;
         height: 600px;
+    }
+
+    .carousel-title{
+        font-size: 50px;
+    }
+
+    .carousel-track {
+        width: calc(754px + 200px); /* One full card + partial second card */
+    }
+    
+    .video-card {
+        width: 700px; /* Slightly smaller on smaller screens */
+        height: 394px; /* Maintain aspect ratio */
     }
 }
 
@@ -425,6 +612,31 @@ background-color: white;
 
     .article-card {
         height: 550px;
+    }
+
+    .carousel-title{
+        font-size: 40px;
+    }
+
+    .carousel-text{
+        font-size: 40px;
+    }
+
+    .carousel-text::after{
+        width: 300px;
+    }
+
+    .carousel-track {
+        width: calc(100% - 60px);
+        overflow-x: visible;
+    }
+
+    .video-card {
+        width: calc((100% - 35px) / 2); /* 2 cards with 1 gap */
+    }
+
+    .carousel-wrap {
+        max-width: calc(754px * 2 + 35px); /* 2 cards on medium screens */
     }
 }
 
@@ -493,6 +705,32 @@ background-color: white;
         height: 500px;
         margin-bottom: 30px;
     }
+
+    .content-carousel-section{
+        height: auto;
+        padding: 40px 0;
+    }
+
+    .carousel-control{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .carousel-title{
+        font-size: 32px;
+    }
+
+    .carousel-text::after{
+        width: 250px;
+    }
+
+    .carousel-track {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+ 
 }
 
 @media (max-width: 480px) {
