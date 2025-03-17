@@ -11,6 +11,7 @@
     --font-heading: 'Industry', sans-serif;
     --font-subtitle: 'Bebas Neue', sans-serif;
     --font-body: 'SF Pro', sans-serif; 
+    --font-headingItalic: 'Industry Black Italic', sans-serif;
 }
 
 /* Font Face Declarations for GitHub Pages */ 
@@ -21,6 +22,15 @@
     font-weight: 900;
     font-style: normal;
     font-display: swap;    
+}
+
+@font-face{
+    font-family: 'Industry Black Italic';
+    src: url('/public/fonts/IndustryTest-BlackItalic.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+    
 }
 
 @font-face {

@@ -526,6 +526,114 @@ body {
 }
 
 
+/*Team section*/
+.teams-section {
+    width: 100%;
+    padding: 80px 0;
+    background-color: var(--color-primary);
+    display: block;
+    box-sizing: border-box;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 65px;
+    text-transform: uppercase;
+    color: white; /* Ensure title is white, not black */
+    letter-spacing: 2px;
+    margin-bottom: 10px; /* Add space between title and subtitle */
+}
+
+.section-subtitle {
+    font-family: var(--font-subtitle);
+    font-size: 32px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.title-accent {
+    color: #8738FF;
+}
+
+.teams-container {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 35px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 25px;
+    box-sizing: border-box;
+}
+
+/*teams cards*/ 
+.team-card {
+    width: 571px;
+    height: 736px;
+    background-color: #1E1E1E;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    flex: 0 0 auto;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative; /* Important for positioning the link container */
+}
+
+.team-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.team-card:hover .team-img {
+    transform: scale(1.05);
+}
+
+.team-link-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px 0;
+    text-align: center;
+}
+
+.team-link {
+    display: inline-block;
+    font-family: var(--font-headingItalic);
+    font-weight: 900;
+    font-size: 24px; /* Increased font size for better visibility */
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: all 0.2s ease;
+}
+
+.team-link:hover {
+    color: #8738FF;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1800px) {
+    .team-card {
+        width: 500px;
+        height: 650px;
+    }
+}
+
+
 /* Responsive UI Adjustments */ 
 
 @media (max-width: 1920px) {
@@ -545,11 +653,19 @@ body {
 }
 
 @media (max-width: 1800px) {
+
     .article-card {
         width: 500px;
         height: 650px;
     }
+
+    .team-card {
+        width: 500px;
+        height: 650px;
+    }
 }
+
+
 
 @media (max-width: 1600px) {
     .navbar-left {
@@ -577,6 +693,15 @@ body {
         width: 700px; /* Slightly smaller on smaller screens */
         height: 394px; /* Maintain aspect ratio */
     }
+
+    .team-card {
+        width: 450px;
+        height: 600px;
+    }
+    
+    .section-title {
+        font-size: 55px;
+    }
 }
 
 @media (max-width: 1400px) {
@@ -590,6 +715,17 @@ body {
         flex: 0 0 auto;
         width: 400px;
         height: 580px;
+    }
+
+    .teams-container {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 20px;
+    }
+    
+    .team-card {
+        width: 400px;
+        height: 520px;
     }
 }
 
@@ -638,6 +774,14 @@ body {
     .carousel-wrap {
         max-width: calc(754px * 2 + 35px); /* 2 cards on medium screens */
     }
+
+    .team-card {
+        height: 480px;
+    }
+    
+    .section-title {
+        font-size: 45px;
+    }
 }
 
 @media (max-width: 992px) {
@@ -660,6 +804,11 @@ body {
     .article-card {
         width: 350px;
         height: 500px;
+    }
+
+    .team-card {
+        width: 350px;
+        height: 450px;
     }
 }
 
@@ -729,6 +878,23 @@ body {
         flex-direction: column;
         gap: 20px;
         width: 100%;
+    }
+
+    .teams-container {
+        flex-direction: column;
+        align-items: center;
+        overflow-x: visible;
+    }
+    
+    .team-card {
+        width: 90%;
+        max-width: 500px;
+        height: 500px;
+        margin-bottom: 30px;
+    }
+    
+    .section-title {
+        font-size: 40px;
     }
  
 }
