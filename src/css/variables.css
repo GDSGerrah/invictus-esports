@@ -50,3 +50,11 @@
     font-style: normal;
     font-display: swap;
 }
+
+@font-face {
+    font-family: 'SF Pro Condensed';
+    src: url('/public/fonts/SF-Pro-Condensed-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}

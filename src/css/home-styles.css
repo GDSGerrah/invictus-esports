@@ -1,24 +1,54 @@
-/* Home Page Styles for your original HTML structure */
-
+/* ===== BASE STYLES ===== */
 html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 body {
     background-color: var(--color-primary); /* #55318C */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-family: var(--font-body);
+    color: white;
+}
+
+/* ===== LAYOUT & STRUCTURE ===== */
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative; 
+}
+
+.page-content {
+    flex: 1; /* Expand to fill available space */
+    display: flex;
+    flex-direction: column;
     position: relative;
 }
 
-/* Navbar */
+/* ===== NAVIGATION ===== */
+/* Navbar Top Info Bar */
+.navbar-info-bar {
+    width: 100%;
+    height: 29px;
+    background-color: #000000;
+    position: absolute; /* Change back to absolute */
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+/* Navbar Main Section */
 .navbar-main {
     width: 100%;
     height: 88px;
-    position: absolute;
-    top: 29px;
+    position: absolute; /* Change back to absolute */
+    top: 29px; /* Position right after the info bar */
     left: 0;
     display: flex;
     justify-content: space-between;
@@ -26,20 +56,10 @@ body {
     padding: 0 50px;
     z-index: 3;
     background-color: transparent;
-    box-sizing: border-box; /* Include padding in width calculation */
+    box-sizing: border-box;
 }
 
-.navbar-info-bar {
-    width: 100%;
-    height: 29px;
-    background-color: #000000;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-}
-
-/* Adjust flex layout to create specific spacing */
+/* Navbar Layout Adjustments */
 .navbar-left {
     flex: 0 0 auto;
     margin-right: 230px; /* Space between left and center */
@@ -54,12 +74,14 @@ body {
     margin-left: 382px; /* Space between center and right */
 }
 
+/* Navbar Logo */
 .navbar-center img {
     width: 314px;
     height: 30px;
     object-fit: contain;
 }
 
+/* Navbar Links */
 .navlinks {
     display: flex;
     list-style: none;
@@ -84,7 +106,7 @@ body {
     text-decoration: none;
     font-family: var(--font-heading);
     font-weight: 900;
-    font-size: 25px; /* Setting the font size to 25px as specified */
+    font-size: 25px;
     text-transform: uppercase;
     transition: color 0.3s ease;
 }
@@ -104,26 +126,25 @@ body {
     margin-left: 5px;
 }
 
-/* Video Player */
+/* ===== VIDEO SECTION ===== */
 .video-player-background {
     width: 100%;
     height: 914px;
     background-color: #1E1E1E;
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     z-index: 1;
-    box-sizing: border-box; /* Ensure no extra width is added */
+    margin-top: 0; /* Ensure this starts at the top */
+    top: 0; /* This should start at the very top */
 }
 
-.video-container{
+.video-container {
     position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
 }
 
-.video-overlay{
+.video-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -132,17 +153,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0,0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-.video-content{
+.video-content {
     text-align: center;
     color: white;
     max-width: 800px;
     padding: 0 20px;
 }
 
-#home-video{
+#home-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -151,7 +172,7 @@ body {
     left: 0;
 }
 
-.home-video-title{
+.home-video-title {
     font-family: var(--font-heading);
     font-weight: 900;
     font-size: 64px;
@@ -232,7 +253,7 @@ body {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Hide/show play/pause icons based on video state */
+/* Video control state indicators */
 #home-video.paused + .video-overlay + .video-controls #play-pause-btn .pause-icon {
     display: none;
 }
@@ -241,7 +262,6 @@ body {
     display: none;
 }
 
-/* Hide/show mute/unmute icons based on video state */
 #home-video.muted + .video-overlay + .video-controls #mute-btn .unmute-icon {
     display: none;
 }
@@ -250,60 +270,52 @@ body {
     display: none;
 }
 
-
-
-/* Main content area */
-
+/* ===== MAIN CONTENT AREA ===== */
 .main-content {
     width: 100%;
-    min-height: 4183px; /* 5126 - 914 - 29 */
     background-color: var(--color-primary);
-    position: absolute;
-    top: 943px; /* 914 + 29 */
-    left: 0;
-    box-sizing: border-box; /* Ensure no extra width is added */
+    position: relative;
+    padding-bottom: 80px;
+    box-sizing: border-box;
 }
 
-.article-cards-section{
- width: 100%;
- padding: 60px 0;
- background-color: var(--color-primary);
- display: block;
- box-sizing: border-box;
+/* ===== ARTICLE CARDS SECTION ===== */
+.article-cards-section {
+    width: 100%;
+    padding: 60px 0;
+    background-color: var(--color-primary);
+    display: block;
+    box-sizing: border-box;
 }
 
-.article-cards-container{
-    max-width: 1800px; /* Slightly reduced to ensure fit on most screens */
+.article-cards-container {
+    max-width: 1800px;
     margin: 0 auto;
     padding: 0 35px;
-    display: flex !important; /* Force flex display */
-    flex-direction: row !important; /* Force horizontal layout */
-    flex-wrap: nowrap !important; /* Prevent wrapping to new line */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: center;
     gap: 25px;
     box-sizing: border-box;
 }
 
-/* Article cards */
-.article-card{
+.article-card {
     width: 571px;
     height: 736px;
     background-color: #d9d9d9;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
-    flex: 0 0 auto; /* Don't grow, don't shrink, use auto basis */
+    flex: 0 0 auto;
     box-sizing: border-box;
 }
 
-.article-card:hover{
+.article-card:hover {
     transform: translateY(-5px);
 }
 
-
-/* Updated CSS to ensure all three cards are fully visible with proper gaps */
-
-/* Main carousel section */
+/* ===== CONTENT CAROUSEL SECTION ===== */
 .content-carousel-section {
     width: 100%;
     height: auto;
@@ -312,8 +324,7 @@ body {
     box-sizing: border-box;
     margin-top: 60px;
     position: relative;
-    overflow: hidden; /* Prevent horizontal scrollbar */
-
+    overflow: hidden;
 }
 
 /* Carousel Header */
@@ -331,7 +342,7 @@ body {
     line-height: 1.1;
     text-align: center;
     text-transform: uppercase;
-    margin-bottom: 70px; /* Increased spacing below title */
+    margin-bottom: 70px;
     letter-spacing: 2px;
     position: relative;
 }
@@ -341,7 +352,7 @@ body {
 }
 
 .title-accent {
-    color: #8738FF; /* Purple accent color */
+    color: #8738FF;
 }
 
 .carousel-controls {
@@ -387,108 +398,80 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease;
     position: absolute;
-    right: auto; /* Override the right property */
+    right: auto;
     left: 1400px;
     top: -22px;
-    width: fit-content; /* Prevent stretching */
+    width: fit-content;
 }
 
 .youtube-btn:hover {
     background-color: #c1152f;
 }
 
-.filter-container {
-    position: absolute;
-    left: 59px;
-    top: 68px;
-}
-
-.filter-btn {
-    background-color: white;
-    color: black;
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 16px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.filter-icon {
-    font-size: 12px;
-}
-
-/* Container with exact width calculation for three full cards */
+/* Carousel Layout */
 .carousel-container {
     position: relative;
     width: 100%;
-    max-width: 1920px; 
+    max-width: 1920px;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: center; /* Center the track in the container */
+    justify-content: center;
     margin-top: 60px;
     padding: 0 82px;
     box-sizing: border-box;
 }
 
-/* Track with exact width for three cards plus gaps */
 .carousel-track {
     display: flex;
     transition: transform 0.5s ease;
-    gap: 35px; /* Exact 35px gap between cards */
-    width: calc(754px * 3 + 35px * 2); /* Three full cards + two gaps */
+    gap: 35px;
+    width: calc(754px * 3 + 35px * 2);
     box-sizing: border-box;
     position: relative;
 }
 
 .carousel-wrap {
     position: relative;
-    width: calc(754px * 3 + 35px * 2); /* Exactly 3 cards + 2 gaps */
+    width: calc(754px * 3 + 35px * 2);
     margin: 0 auto;
-    overflow: hidden; /* Double protection for hiding overflow */
+    overflow: hidden;
 }
 
-/* Card exact dimensions */
+/* Carousel Cards */
 .video-card {
     width: 754px;
     height: 425px;
-    flex: 0 0 auto; /* Don't grow or shrink */
+    flex: 0 0 auto;
     border-radius: 5px;
     overflow: hidden;
     position: relative;
     margin: 0;
     box-sizing: border-box;
-    background-color: #222; /* Dark background for empty space */
+    background-color: #222;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .video-link {
-    display: block;
+    display: flex;
     width: 100%;
     height: 100%;
-    display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Full-size thumbnails */
 .thumbnail-img {
     max-width: 100%;
     max-height: 100%;
     width: auto;
     height: auto;
-    object-fit: scale-down; /* Scale down to fit but never scale up */
+    object-fit: scale-down;
     border-radius: 5px;
 }
 
-/* Position arrows at the edges */
+/* Carousel Navigation */
 .carousel-arrow {
     position: absolute;
     top: 50%;
@@ -525,8 +508,7 @@ body {
     line-height: 1;
 }
 
-
-/*Team section*/
+/* ===== TEAMS SECTION ===== */
 .teams-section {
     width: 100%;
     padding: 80px 0;
@@ -545,9 +527,9 @@ body {
     font-weight: 900;
     font-size: 65px;
     text-transform: uppercase;
-    color: white; /* Ensure title is white, not black */
+    color: white;
     letter-spacing: 2px;
-    margin-bottom: 10px; /* Add space between title and subtitle */
+    margin-bottom: 10px;
 }
 
 .section-subtitle {
@@ -556,10 +538,6 @@ body {
     color: white;
     text-transform: uppercase;
     letter-spacing: 1px;
-}
-
-.title-accent {
-    color: #8738FF;
 }
 
 .teams-container {
@@ -574,18 +552,18 @@ body {
     box-sizing: border-box;
 }
 
-/*teams cards*/ 
+/* Team Cards */
 .team-card {
     width: 571px;
     height: 736px;
     background-color: #1E1E1E;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
     flex: 0 0 auto;
     box-sizing: border-box;
     overflow: hidden;
-    position: relative; /* Important for positioning the link container */
+    position: relative;
 }
 
 .team-img {
@@ -613,7 +591,7 @@ body {
     display: inline-block;
     font-family: var(--font-headingItalic);
     font-weight: 900;
-    font-size: 24px; /* Increased font size for better visibility */
+    font-size: 24px;
     text-transform: uppercase;
     color: white;
     text-decoration: none;
@@ -625,10 +603,7 @@ body {
     color: #8738FF;
 }
 
-
-/* Call to Action Section */
-/* Call to Action Section */
-
+/* ===== CTA SECTION ===== */
 .cta-div {
     width: 100%;
     margin-top: 80px;
@@ -637,11 +612,11 @@ body {
 
 .cta-section {
     width: 100%;
-    background: linear-gradient(to right, #1E1E1E 50%, var(--color-primary) 50%);
+    background: linear-gradient(to right, #332D2D 50%, var(--color-primary) 50%);
     padding: 0;
     position: relative;
     overflow: hidden;
-    height: 243px; /* Set exact height */
+    height: 243px;
 }
 
 .cta-container {
@@ -656,9 +631,9 @@ body {
 }
 
 .cta-content {
-    width: 483px; /* Half of 966px */
+    width: 483px;
     height: 100%;
-    background-color: #1E1E1E;
+    background-color: #332D2D;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -670,10 +645,10 @@ body {
 .cta-title {
     font-family: var(--font-heading);
     font-weight: 900;
-    font-size: 42px; /* Reduced size */
+    font-size: 42px;
     color: white;
     text-align: center;
-    margin-bottom: 20px; /* Reduced margin */
+    margin-bottom: 20px;
     text-transform: uppercase;
     line-height: 1.2;
 }
@@ -705,21 +680,161 @@ body {
     font-weight: bold;
 }
 
+/* ===== FOOTER SECTION ===== */
+.footer {
+    width: 100%;
+    background-color: #1E1E1E;
+    padding: 60px 0;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
 
-/* Footer Section */
+.footer-container {
+    max-width: 1800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 35px;
+    box-sizing: border-box;
+}
 
+/* Footer Headings and Links */
+.footer-heading {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #8738FF;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
 
+.footer-links {
+    flex: 0 0 auto;
+    margin-right: 50px;
+}
 
-/* Responsive UI Adjustments */ 
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-style: condensed;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    letter-spacing: 0.2px;
+}
+
+.footer-links a:hover {
+    color: #8738FF;
+}
+
+/* Footer Logo and Social Icons */
+.footer-logo {
+    flex: 0 0 auto;
+    margin-right: 100px;
+}
+
+.footer-logo img {
+    width: 200px;
+    margin-bottom: 30px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 25px;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+}
+
+.social-icon:hover {
+    opacity: 0.8;
+}
+
+/* Custom social icon sizes */
+.social-icon.youtube {
+    width: 40px;
+    height: 40px;
+}
+
+.social-icon.youtube img {
+    width: 40px;
+    height: 40px;
+}
+
+.social-icon.twitter {
+    width: 25px;
+    height: 25px;
+}
+
+.social-icon.twitter img {
+    width: 25px;
+    height: 25px;
+}
+
+.social-icon.tiktok {
+    width: 25px;
+    height: 25px;
+}
+
+.social-icon.tiktok img {
+    width: 25px;
+    height: 25px;
+}
+
+.social-icon.discord {
+    width: 37px;
+    height: 37px;
+}
+
+.social-icon.discord img {
+    width: 37px;
+    height: 37px;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    background-color: #111111;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.copyright {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: #888888;
+    margin: 0;
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+/* Large Desktop (1920px and below) */
 @media (max-width: 1920px) {
     .carousel-track {
-        width: calc(100% - 100px); /* Adjust for smaller screens */
+        width: calc(100% - 100px);
     }
     
     .video-card {
-        width: calc((100% - 70px) / 3); /* 3 cards with 2 gaps of 35px */
+        width: calc((100% - 70px) / 3);
         height: auto;
-        aspect-ratio: 754/425; /* Maintain aspect ratio */
+        aspect-ratio: 754/425;
     }
 
     .carousel-title {
@@ -727,10 +842,8 @@ body {
     }
 }
 
-
-
+/* Desktop (1800px and below) */
 @media (max-width: 1800px) {
-
     .article-card {
         width: 500px;
         height: 650px;
@@ -742,8 +855,7 @@ body {
     }
 }
 
-
-
+/* Small Desktop (1600px and below) */
 @media (max-width: 1600px) {
     .navbar-left {
         margin-right: 100px;
@@ -758,17 +870,17 @@ body {
         height: 600px;
     }
 
-    .carousel-title{
+    .carousel-title {
         font-size: 50px;
     }
 
     .carousel-track {
-        width: calc(754px + 200px); /* One full card + partial second card */
+        width: calc(754px + 200px);
     }
     
     .video-card {
-        width: 700px; /* Slightly smaller on smaller screens */
-        height: 394px; /* Maintain aspect ratio */
+        width: 700px;
+        height: 394px;
     }
 
     .team-card {
@@ -781,10 +893,11 @@ body {
     }
 }
 
+/* Large Tablet (1400px and below) */
 @media (max-width: 1400px) {
     .article-cards-container {
         overflow-x: auto;
-        justify-content: flex-start !important;
+        justify-content: flex-start;
         padding-bottom: 20px;
     }
     
@@ -806,6 +919,7 @@ body {
     }
 }
 
+/* Tablet (1200px and below) */
 @media (max-width: 1200px) {
     .navbar-main {
         padding: 0 20px;
@@ -827,15 +941,15 @@ body {
         height: 550px;
     }
 
-    .carousel-title{
+    .carousel-title {
         font-size: 40px;
     }
 
-    .carousel-text{
+    .carousel-text {
         font-size: 40px;
     }
 
-    .carousel-text::after{
+    .carousel-text::after {
         width: 300px;
     }
 
@@ -845,11 +959,11 @@ body {
     }
 
     .video-card {
-        width: calc((100% - 35px) / 2); /* 2 cards with 1 gap */
+        width: calc((100% - 35px) / 2);
     }
 
     .carousel-wrap {
-        max-width: calc(754px * 2 + 35px); /* 2 cards on medium screens */
+        max-width: calc(754px * 2 + 35px);
     }
 
     .team-card {
@@ -867,8 +981,18 @@ body {
     .cta-title {
         font-size: 32px;
     }
+    
+    .footer-container {
+        flex-wrap: wrap;
+    }
+    
+    .footer-logo {
+        margin-right: 50px;
+        margin-bottom: 40px;
+    }
 }
 
+/* Small Tablet (992px and below) */
 @media (max-width: 992px) {
     .navlinks li {
         margin: 0 10px;
@@ -897,18 +1021,41 @@ body {
     }
 
     .cta-section {
-        background: #1E1E1E;
+        background: #332D2D;
+        height: auto;
+    }
+    
+    .cta-container {
+        padding: 0;
     }
     
     .cta-content {
         width: 100%;
         max-width: 500px;
         margin: 0 auto;
+        padding: 40px 20px;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+    }
+    
+    .footer-logo, .footer-links {
+        margin-right: 0;
+        margin-bottom: 40px;
+    }
+    
+    .footer-logo {
+        text-align: center;
+    }
+    
+    .social-icons {
+        justify-content: center;
     }
 }
 
+/* Mobile (768px and below) */
 @media (max-width: 768px) {
-    /* Mobile menu styles */
     .navbar-main {
         flex-direction: column;
         height: auto;
@@ -918,7 +1065,6 @@ body {
         margin: 10px 0;
     }
     
-    /* Video content */
     .home-video-title {
         font-size: 40px;
     }
@@ -936,9 +1082,8 @@ body {
         gap: 15px;
     }
     
-    /* Article cards - switch to vertical layout ONLY at this small size */
     .article-cards-container {
-        flex-direction: column !important;
+        flex-direction: column;
         align-items: center;
         overflow-x: visible;
     }
@@ -950,22 +1095,22 @@ body {
         margin-bottom: 30px;
     }
 
-    .content-carousel-section{
+    .content-carousel-section {
         height: auto;
         padding: 40px 0;
     }
 
-    .carousel-control{
+    .carousel-control {
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
     }
 
-    .carousel-title{
+    .carousel-title {
         font-size: 32px;
     }
 
-    .carousel-text::after{
+    .carousel-text::after {
         width: 250px;
     }
 
@@ -996,13 +1141,29 @@ body {
         font-size: 28px;
     }
     
-    .cta-btn{
+    .cta-btn {
         padding: 12px 24px;
         font-size: 16px;
     }
- 
+    
+    .footer {
+        padding: 40px 0;
+    }
+    
+    .footer-container {
+        padding: 0 20px;
+    }
+    
+    .footer-heading {
+        font-size: 18px;
+    }
+    
+    .footer-links a {
+        font-size: 14px;
+    }
 }
 
+/* Small Mobile (480px and below) */
 @media (max-width: 480px) {
     .home-video-title {
         font-size: 32px;
@@ -1019,5 +1180,18 @@ body {
 
     .cta-title {
         font-size: 24px;
+    }
+    
+    .cta-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+    
+    .footer-logo img {
+        width: 180px;
+    }
+    
+    .social-icons {
+        gap: 20px;
     }
 }

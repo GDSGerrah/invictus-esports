@@ -92,9 +92,6 @@
     
     <!-- Main Content Section -->
     <div class="main-content">
-        <!-- Content will go here -->
-
-
         <!-- News - Upcoming match - Articles -->
         <div class="article-cards-section">
             <div class="article-cards-container">
@@ -197,7 +194,7 @@
         <section class="teams-section">
             <!--Teams Header-->
             <div class="section-header">
-                <h2 class="section-title">OUR TEAMS</span></h2>
+                <h2 class="section-title">OUR <span class="title-accent">TEAMS</span></h2>
                 <div class="section-subtitle">LEARN MORE ABOUT OUR SQUADS</div>
             </div>
         
@@ -229,24 +226,71 @@
             </div>
         </section>
 
-           
-            <!--CTA Section-->
-            <div class="cta-div">
-                <section class="cta-section">
-                    <div class="cta-container">
-                        <div class="cta-content">
-                            <h2 class="cta-title">JOIN OUR JOURNEY<br>BECOME A PARTNER</h2>
-                            <a href="/contact" class="cta-btn">LET'S CONNECT <span class="cta-arrow-icon">»</span></a>
-                        </div>
+        <!--CTA Section-->
+        <div class="cta-div">
+            <section class="cta-section">
+                <div class="cta-container">
+                    <div class="cta-content">
+                        <h2 class="cta-title">JOIN OUR JOURNEY<br>BECOME A PARTNER</h2>
+                        <a href="/contact" class="cta-btn">LET'S CONNECT <span class="cta-arrow-icon">»</span></a>
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
         </div>
-
     </div>
 
- 
-   
+    <!-- Footer Section - OUTSIDE of main-content -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!--Logo and Social media-->
+            <div class="footer-logo">
+                <img src="/public/img/Logo_Icon_img.png" alt="Invictus Logo Icon">
+                <div class="social-icons">
+                    <a href="https://discord.gg/invictus" target="_blank" class="social-icon discord">
+                        <img src="/public/icons/discord_icn.png" alt="Discord">
+                    </a>
+
+                    <a href="https://x.com/InvictusHQ_" target="_blank" class="social-icon twitter">
+                        <img src="/public/icons/twitter_icn.png" alt="Twitter">
+                    </a>
+
+                    <a href="https://tiktok.com/@invictus" target="_blank" class="social-icon tiktok">
+                        <img src="/public/icons/tiktok_icn.png" alt="TikTok">
+                    </a>
+
+                    <a href="https://youtube.com/invictus" target="_blank" class="social-icon youtube">
+                        <img src="/public/icons/youtube_icn.png" alt="YouTube">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Links Column 1 -->
+            <div class="footer-links">
+                <h3 class="footer-heading">INVICTUS ESPORTS</h3>
+                <ul>
+                    <li><a href="/about">About us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/business">Business Contact</a></li>
+                    <li><a href="/media">Media</a></li>
+                </ul>
+            </div>
+    
+            <!-- Links Column 2 -->
+            <div class="footer-links">
+                <h3 class="footer-heading">TEAMS</h3>
+                <ul>
+                    <li><a href="/teams/valorant">Valorant</a></li>
+                    <li><a href="/teams/lol">League of Legends</a></li>
+                    <li><a href="/teams/cs">Counter-Strike</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Copyright Section -->
+        <div class="footer-bottom">
+            <p class="copyright">© 2025 Invictus Esports. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script src="/src/js/main.js"></script>
 </body>
