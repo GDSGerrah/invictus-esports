@@ -625,17 +625,92 @@ body {
     color: #8738FF;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1800px) {
-    .team-card {
-        width: 500px;
-        height: 650px;
-    }
+
+/* Call to Action Section */
+/* Call to Action Section */
+
+.cta-div {
+    width: 100%;
+    margin-top: 80px;
+    position: relative;
+}
+
+.cta-section {
+    width: 100%;
+    background: linear-gradient(to right, #1E1E1E 50%, var(--color-primary) 50%);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    height: 243px; /* Set exact height */
+}
+
+.cta-container {
+    max-width: 1920px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 0 0 250px;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.cta-content {
+    width: 483px; /* Half of 966px */
+    height: 100%;
+    background-color: #1E1E1E;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0;
+}
+
+.cta-title {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 42px; /* Reduced size */
+    color: white;
+    text-align: center;
+    margin-bottom: 20px; /* Reduced margin */
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 30px;
+    background-color: #8738FF;
+    color: white;
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-btn:hover {
+    background-color: #6b20d4;
+}
+
+.cta-arrow-icon {
+    display: inline-block;
+    margin-left: 10px;
+    font-weight: bold;
 }
 
 
-/* Responsive UI Adjustments */ 
+/* Footer Section */
 
+
+
+/* Responsive UI Adjustments */ 
 @media (max-width: 1920px) {
     .carousel-track {
         width: calc(100% - 100px); /* Adjust for smaller screens */
@@ -651,6 +726,8 @@ body {
         font-size: 100px;
     }
 }
+
+
 
 @media (max-width: 1800px) {
 
@@ -782,6 +859,14 @@ body {
     .section-title {
         font-size: 45px;
     }
+
+    .cta-content {
+        width: 400px;
+    }
+    
+    .cta-title {
+        font-size: 32px;
+    }
 }
 
 @media (max-width: 992px) {
@@ -809,6 +894,16 @@ body {
     .team-card {
         width: 350px;
         height: 450px;
+    }
+
+    .cta-section {
+        background: #1E1E1E;
+    }
+    
+    .cta-content {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
     }
 }
 
@@ -896,6 +991,15 @@ body {
     .section-title {
         font-size: 40px;
     }
+
+    .cta-title {
+        font-size: 28px;
+    }
+    
+    .cta-btn{
+        padding: 12px 24px;
+        font-size: 16px;
+    }
  
 }
 
@@ -911,5 +1015,9 @@ body {
     
     .article-card {
         height: 400px;
+    }
+
+    .cta-title {
+        font-size: 24px;
     }
 }
