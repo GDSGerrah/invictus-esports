@@ -183,16 +183,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // New code for dynamic navbar
+    // Fixed dynamic navbar with logo switching
     const navbar = document.querySelector('.navbar-main');
     const videoSection = document.querySelector('.video-player-background');
+    const logoWhite = document.querySelector('.logo-white');
+    const logoDark = document.querySelector('.logo-dark');
+    
     let scrollThreshold;
     
     // Calculate the threshold point where navbar should change
     function calculateThreshold() {
         if (videoSection) {
             // The threshold is the bottom of the video section minus navbar height
-            return videoSection.offsetHeight + videoSection.offsetTop - navbar.offsetHeight;
+            return videoSection.offsetHeight - 100; // Adjusted threshold
         }
         return 300; // Default threshold if video section isn't found
     }
@@ -210,9 +213,21 @@ document.addEventListener('DOMContentLoaded', function() {
         if (window.scrollY >= scrollThreshold) {
             // We've scrolled past the video section - change navbar to white
             navbar.classList.add('scrolled');
+            
+            // Explicitly handle logo visibility
+            if (logoWhite && logoDark) {
+                logoWhite.style.display = 'none';
+                logoDark.style.display = 'block';
+            }
         } else {
             // We're still in the video section - keep navbar transparent
             navbar.classList.remove('scrolled');
+            
+            // Explicitly handle logo visibility
+            if (logoWhite && logoDark) {
+                logoWhite.style.display = 'block';
+                logoDark.style.display = 'none';
+            }
         }
     }
     
@@ -221,4 +236,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Check position on initial page load
     checkScrollPosition();
+    
+    // Force a resize event to calculate proper thresholds on load
+    window.dispatchEvent(new Event('resize'));
 });
