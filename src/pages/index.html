@@ -12,49 +12,41 @@
 
 <body>
 
-    <!-- Navbar section -->
-
-     <!-- Navbar Top Info bar -->
     <div class="navbar-info-bar"></div>
 
-    <!-- Navbar Main Section -->
-    <div class="navbar-main">
-
+    <div class="navbar-main" id="dynamic-navbar">
         <!-- Navbar Left section -->
         <div class="navbar-left">
-         <ul class="navlinks">
-            <li><a href="#" class="active">HOME</a></li>
-            <li><a href="#">EsportS</a></li>
-            <li><a href="#">ABOUT US</a></li>
-            <li><a href="#">Community</a></li>
-         </ul>
+            <ul class="navlinks">
+                <li><a href="#" class="nav-link active">HOME</a></li>
+                <li><a href="#" class="nav-link">ESPORTS</a></li>
+                <li><a href="#" class="nav-link">ABOUT US</a></li>
+                <li><a href="#" class="nav-link">COMMUNITY</a></li>
+            </ul>
         </div>
-
-
+    
         <!-- Navbar Center section -->
         <div class="navbar-center">
             <a href="/" class="logo">
-                <img src="/public/img/logo_igm.png">
+                <!-- We'll swap between these two logos -->
+                <img src="/public/img/logo_igm.png" class="logo-white" alt="Invictus Logo">
+                <img src="/public/img/logo_igm_dark.png" class="logo-dark" alt="Invictus Logo Dark" style="display: none;">
             </a>
-
         </div>
-
-
+    
         <!-- Navbar Right section -->
         <div class="navbar-right">
-         <ul class="navlinks">
-            <li><a href="#">Account</a></li>
-            <li><a href="#">Cart</a></li>
-            <li>
-                <a href="#" class="reg-selector">
-                    INT
-                    <img src="/public/icons/arrow_menu_ICN.png" alt="Region Selector" class="dropdown-icon">
-                </a>
-            </li>
-         </ul>
+            <ul class="navlinks">
+                <li><a href="#" class="nav-link">ACCOUNT</a></li>
+                <li><a href="#" class="nav-link">CART</a></li>
+                <li>
+                    <a href="#" class="nav-link reg-selector">
+                        INT
+                        <img src="/public/icons/arrow_menu_ICN.png" alt="Region Selector" class="dropdown-icon">
+                    </a>
+                </li>
+            </ul>
         </div>
-
-
     </div>
     
     <!-- Video Player Section -->
@@ -288,7 +280,13 @@
         
         <!-- Copyright Section -->
         <div class="footer-bottom">
-            <p class="copyright">© 2025 Invictus Esports. All rights reserved.</p>
+            <div class="footer-bottom-content">
+                <p class="copyright">© 2025 Invictus Esports. All Rights Reserved.</p>
+                <div class="footer-legal-links">
+                    <a href="/privacy" class="legal-link">Privacy</a>
+                    <a href="/terms" class="legal-link">Terms</a>
+                </div>
+            </div>
         </div>
     </footer>
 

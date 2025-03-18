@@ -37,41 +37,43 @@ body {
     width: 100%;
     height: 29px;
     background-color: #000000;
-    position: absolute; /* Change back to absolute */
+    position: fixed; /* Fixed typo: removed trailing slash */
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 10;
 }
 
 /* Navbar Main Section */
 .navbar-main {
     width: 100%;
     height: 88px;
-    position: absolute; /* Change back to absolute */
-    top: 29px; /* Position right after the info bar */
+    position: fixed;
+    top: 29px;
     left: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 50px;
-    z-index: 3;
+    z-index: 10;
     background-color: transparent;
     box-sizing: border-box;
+    transition: all 0.3s ease;
 }
 
 /* Navbar Layout Adjustments */
 .navbar-left {
     flex: 0 0 auto;
-    margin-right: 230px; /* Space between left and center */
+    margin-right: 230px;
 }
 
 .navbar-center {
     flex: 0 0 auto;
+    z-index: 11;
 }
 
 .navbar-right {
     flex: 0 0 auto;
-    margin-left: 382px; /* Space between center and right */
+    margin-left: 382px;
 }
 
 /* Navbar Logo */
@@ -79,6 +81,7 @@ body {
     width: 314px;
     height: 30px;
     object-fit: contain;
+    transition: all 0.3s ease;
 }
 
 /* Navbar Links */
@@ -101,6 +104,7 @@ body {
     margin: 0 15px;
 }
 
+/* Link styling - consolidated */
 .navlinks a {
     color: white;
     text-decoration: none;
@@ -116,6 +120,39 @@ body {
     color: #802EFC;
 }
 
+/* Scrolled state changes */
+.navbar-main.scrolled {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-main.scrolled .navlinks a {
+    color: #333333;
+}
+
+.navbar-main.scrolled .navlinks a:hover,
+.navbar-main.scrolled .navlinks a.active {
+    color: #802EFC;
+}
+
+/* Logo swapping */
+.navbar-main .logo-white {
+    display: block;
+}
+
+.navbar-main .logo-dark {
+    display: none;
+}
+
+.navbar-main.scrolled .logo-white {
+    display: none !important;
+}
+
+.navbar-main.scrolled .logo-dark {
+    display: block !important;
+}
+
+/* Dropdown icon */
 .reg-selector {
     display: flex;
     align-items: center;
@@ -124,6 +161,7 @@ body {
 .dropdown-icon {
     height: 12px;
     margin-left: 5px;
+    transition: filter 0.3s ease;
 }
 
 /* ===== VIDEO SECTION ===== */
@@ -697,6 +735,7 @@ body {
     justify-content: space-between;
     padding: 0 35px;
     box-sizing: border-box;
+    position: relative;
 }
 
 /* Footer Headings and Links */
@@ -713,6 +752,7 @@ body {
 .footer-links {
     flex: 0 0 auto;
     margin-right: 50px;
+    margin-right: 150px;
 }
 
 .footer-links ul {
@@ -734,6 +774,21 @@ body {
     text-decoration: none;
     transition: color 0.3s ease;
     letter-spacing: 0.2px;
+    
+}
+
+.footer-links:nth-child(2) {
+    margin-left: 100px; /* Adjust this value to position the first text column */
+}
+
+.footer-links:nth-child(3) {
+    margin-left: auto; /*  push to the right side */
+    margin-right: 100px; /* Add some margin from the right edge */
+}
+
+.footer-links:nth-child(3) {
+    margin-left: auto; /* This will push it to the right side */
+    margin-right: 100px; /* Add some margin from the right edge */
 }
 
 .footer-links a:hover {
@@ -744,10 +799,13 @@ body {
 .footer-logo {
     flex: 0 0 auto;
     margin-right: 100px;
+    padding-left: 50px;
 }
 
 .footer-logo img {
-    width: 200px;
+    width: 146px;
+    height: 138px;
+    object-fit: contain;
     margin-bottom: 30px;
 }
 
@@ -756,7 +814,12 @@ body {
     gap: 25px;
     margin-top: 20px;
     align-items: center;
+    left: 3px; /* Adjust this value to move icons more to the right */
+    bottom: 0; /* Align with the bottom of the logo container */
+    
+
 }
+
 
 .social-icon {
     display: flex;
@@ -812,9 +875,20 @@ body {
 
 /* Footer Bottom */
 .footer-bottom {
-    background-color: #111111;
-    text-align: center;
+    width: 100%;
     padding: 20px 0;
+    background-color: transparent; /* Remove background */
+    text-align: center;
+    position: relative;
+}
+
+.footer-bottom-content {
+    max-width: 1800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 35px;
 }
 
 .copyright {
@@ -822,6 +896,23 @@ body {
     font-size: 14px;
     color: #888888;
     margin: 0;
+}
+
+.footer-legal-links {
+    display: flex;
+    gap: 30px;
+}
+
+.legal-link {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: #888888;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.legal-link:hover {
+    color: #8738FF;
 }
 
 /* ===== RESPONSIVE STYLES ===== */

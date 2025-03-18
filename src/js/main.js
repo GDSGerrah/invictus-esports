@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Video player functionality (keeping your existing code)
+    // Video player functionality
     const videoElement = document.getElementById('home-video');
     const playPauseBtn = document.getElementById('play-pause-btn');
     const muteBtn = document.getElementById('mute-btn');
@@ -182,4 +182,43 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
+    
+    // New code for dynamic navbar
+    const navbar = document.querySelector('.navbar-main');
+    const videoSection = document.querySelector('.video-player-background');
+    let scrollThreshold;
+    
+    // Calculate the threshold point where navbar should change
+    function calculateThreshold() {
+        if (videoSection) {
+            // The threshold is the bottom of the video section minus navbar height
+            return videoSection.offsetHeight + videoSection.offsetTop - navbar.offsetHeight;
+        }
+        return 300; // Default threshold if video section isn't found
+    }
+    
+    // Set initial threshold
+    scrollThreshold = calculateThreshold();
+    
+    // Recalculate threshold on window resize
+    window.addEventListener('resize', function() {
+        scrollThreshold = calculateThreshold();
+    });
+    
+    // Function to check scroll position and update navbar
+    function checkScrollPosition() {
+        if (window.scrollY >= scrollThreshold) {
+            // We've scrolled past the video section - change navbar to white
+            navbar.classList.add('scrolled');
+        } else {
+            // We're still in the video section - keep navbar transparent
+            navbar.classList.remove('scrolled');
+        }
+    }
+    
+    // Listen for scroll events
+    window.addEventListener('scroll', checkScrollPosition);
+    
+    // Check position on initial page load
+    checkScrollPosition();
 });
