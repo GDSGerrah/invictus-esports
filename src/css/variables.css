@@ -1,23 +1,179 @@
-:root {
-    
-    /*Color Palette*/
+/* ===========================================
+   CSS VARIABLES & DESIGN TOKENS
+   =========================================== */
 
-    --color-primary: #55318C;
-    --color-White: #FFFFFF; 
-    --color-Dark: #262626;
-    
-    /* Font Families*/
+   /* DESIGN TOKEN NAMING CONVENTION
 
+Our design tokens follow these patterns:
+
+1. Category prefix
+   All tokens start with their category to group related values:
+   - color-*: Color values
+   - spacing-*: Spacing and layout measurements
+   - font-*: Typography-related values
+   - shadow-*: Box-shadow values
+   - radius-*: Border-radius values
+   - z-*: z-index values
+   - transition-*: Animation/transition timings
+
+2. Scaling system
+   We use a consistent scale across categories where appropriate:
+   - xs: Extra small (smallest value)
+   - sm: Small
+   - md: Medium (base/default)
+   - lg: Large
+   - xl: Extra large
+   - 2xl: Extra extra large (largest value)
+
+3. Semantic naming for colors
+   - color-primary: Main brand color
+   - color-accent: Secondary brand color 
+   - color-success: Positive actions/messages
+   - color-warning: Cautionary actions/messages
+   - color-error: Negative actions/messages
+   - color-background: Page backgrounds
+   - color-surface: Component backgrounds
+   - color-text-primary: Main text color
+   - color-text-secondary: Less prominent text
+
+4. Usage in components
+   All component styles should use these tokens rather than hard-coded values
+   
+*/
+   :root {
+
+    /* --------- COLOR SYSTEM --------- */
+
+    /* Primary brands colors */
+    --color-primary:  #42267a;
+    --color-primary-light: #5531bc;
+    --color-primary-lighter: #6b3ea8;
+
+    /* Accent color */
+    --color-accent: #8738ff;
+    --color-accent-dark: #6b20d4;
+    --color-accent-light: #9a5eff;
+
+    /* Secondary colors */
+    --color-secondary: #e31937;
+    --color-secondary-dark: #c1152f;
+    
+
+    /* Neutral/Gray palette */
+    --color-gray-darkest: #1e1e1e;
+    --color-gray-dark: #333333;
+    --color-gray-medium: #888888;
+    --color-gray-light: #d9d9d9d9;
+    --color-gray-lightest: #f4f4f4;
+
+    /* base colors */ 
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-dark: #262626; 
+
+
+    /* Semantic UI Colors */
+    --color-background: var(--color-primary);
+    --color-background-dar: var(--color-gray-darkest);
+    --color-surface: var(--color-white);
+    --color-surface-dark: var(--color-gray-dark);
+
+    /* Text colors */
+    --color-text-primary: var(--color-white);
+    --color-text-secondary: var(--color-gray-light);
+    --color-text-accent: var(--color-accent);
+    --color-text-dark: var(--color-gray-dark);
+
+ /* --------- TYPOGRAPHY --------- */
+    /* Font families */
     --font-heading: 'Industry', sans-serif;
     --font-subtitle: 'Bebas Neue', sans-serif;
     --font-body: 'SF Pro', sans-serif; 
     --font-headingItalic: 'Industry Black Italic', sans-serif;
+    
+    /* Font sizes */
+    --font-size-xs: 0.75rem;    /* 12px */
+    --font-size-sm: 0.875rem;   /* 14px */
+    --font-size-md: 1rem;       /* 16px - Base size */
+    --font-size-lg: 1.25rem;    /* 20px */
+    --font-size-xl: 1.5rem;     /* 24px */
+    --font-size-2xl: 2rem;      /* 32px */
+    --font-size-3xl: 2.5rem;    /* 40px */
+    --font-size-4xl: 3rem;      /* 48px */
+    --font-size-5xl: 4rem;      /* 64px */
+    
+    /* Line heights */
+    --line-height-tight: 1.1;    /* Headings */
+    --line-height-normal: 1.5;   /* Body text */
+    --line-height-loose: 1.8;    /* Spacious text */
+    
+    /* Letter spacing */
+    --letter-spacing-tight: -0.025em;
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: 0.05em;
+    --letter-spacing-wider: 0.1em;
+    
+    /* Font weights */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+    --font-weight-black: 900;
+    
+    /* --------- LAYOUT & SIZING --------- */
+    /* Spacing scale */
+    --spacing-xs: 0.25rem;    /* 4px */
+    --spacing-sm: 0.5rem;     /* 8px */
+    --spacing-md: 1rem;       /* 16px - Base */
+    --spacing-lg: 1.5rem;     /* 24px */
+    --spacing-xl: 2rem;       /* 32px */
+    --spacing-2xl: 3rem;      /* 48px */
+    --spacing-3xl: 4rem;      /* 64px */
+    --spacing-4xl: 6rem;      /* 96px */
+    
+    /* Containers/width constraints */
+    --container-sm: 640px;
+    --container-md: 768px;
+    --container-lg: 1024px;
+    --container-xl: 1280px;
+    --container-2xl: 1536px;
+    --container-full: 1800px;
+    
+    /* --------- EFFECTS --------- */
+    /* Box shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+    
+    /* Border radius */
+    --radius-sm: 0.125rem;    /* 2px */
+    --radius-md: 0.375rem;    /* 6px */
+    --radius-lg: 0.5rem;      /* 8px */
+    --radius-xl: 1rem;        /* 16px */
+    --radius-full: 9999px;    /* Fully rounded (circles/pills) */
+    
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-normal: 300ms ease;
+    --transition-slow: 500ms ease;
+    
+    /* Z-index layers */
+    --z-negative: -1;
+    --z-base: 0;
+    --z-above: 1;
+    --z-dropdown: 10;
+    --z-sticky: 100;
+    --z-fixed: 200;
+    --z-modal: 300;
+    --z-popover: 400;
+    --z-tooltip: 500;
+
 }
 
+/* --------- FONT DECLARATIONS --------- */
 /* Font Face Declarations for GitHub Pages */ 
 @font-face {
     font-family: 'Industry';
-    /* Remove the leading slash and adjust the path for GitHub Pages */
     src: url('../fonts/IndustryTest-Black.otf') format('opentype');
     font-weight: 900;
     font-style: normal;
@@ -30,12 +186,10 @@
     font-weight: 900;
     font-style: normal;
     font-display: swap;
-    
 }
 
 @font-face {
     font-family: 'Bebas Neue';
-    /* Remove the leading slash and adjust the path for GitHub Pages */
     src: url('../fonts/BebasNeue-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
@@ -44,7 +198,6 @@
 
 @font-face {
     font-family: 'SF Pro';
-    /* Remove the leading slash and adjust the path for GitHub Pages */
     src: url('../fonts/SF-Pro.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;

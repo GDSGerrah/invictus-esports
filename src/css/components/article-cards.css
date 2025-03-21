@@ -1,0 +1,99 @@
+/* ===== ARTICLE CARDS SECTION ===== */
+
+.article-cards-section {
+    width: 100%;
+    padding: var(--spacing-3xl) 0;
+    background-color: var(--color-background);
+    display: block;
+    box-sizing: border-box;
+}
+
+.article-cards-container {
+    max-width: var(--container-full);
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    box-sizing: border-box;
+}
+
+.article-card {
+    width: 571px;
+    height: 736px;
+    background-color: var(--color-gray-light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-normal);
+    flex: 0 0 auto;
+    box-sizing: border-box;
+}
+
+.article-card:hover {
+    transform: translateY(calc(var(--spacing-xs) * -1));
+    box-shadow: var(--shadow-lg);
+}
+
+/* Responsive styles */
+@media (max-width: 1800px) {
+    .article-card {
+        width: 500px;
+        height: 650px;
+    }
+}
+
+@media (max-width: 1600px) {
+    .article-card {
+        width: 450px;
+        height: 600px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .article-cards-container {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: var(--spacing-lg);
+    }
+    
+    .article-card {
+        width: 400px;
+        height: 580px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .article-card {
+        height: 550px;
+    }
+}
+
+@media (max-width: 992px) {
+    .article-card {
+        width: 350px;
+        height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .article-cards-container {
+        flex-direction: column;
+        align-items: center;
+        overflow-x: visible;
+    }
+    
+    .article-card {
+        width: 90%;
+        max-width: 500px;
+        height: 500px;
+        margin-bottom: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .article-card {
+        height: 400px;
+    }
+}

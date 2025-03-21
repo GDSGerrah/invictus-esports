@@ -1,0 +1,22 @@
+/* ===========================================
+   INVICTUS ESPORTS - MAIN CSS
+   =========================================== */
+
+/* Base styles and design tokens */
+@import url("variables.css");
+
+/* Component styles */
+@import url("components/navbar.css");
+@import 'components/video-hero.css';
+@import 'components/content-carousel.css';
+@import 'components/teams-section.css';
+@import 'components/cta-section.css';
+@import 'components/footer.css'; 
+@import 'components/article-cards.css';
+
+
+/* General styles (will gradually extract components from here) */
+@import url("styles.css");
+
+/* Page-specific styles */
+@import url("home-styles.css");

@@ -4,293 +4,289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Invictus Esports - Professional gaming organization featuring teams in Valorant, League of Legends, and Counter-Strike">
     <title>Invictus | Esports Organization</title>
-    <link rel="stylesheet" href="/src/css/variables.css">
-    <link rel="stylesheet" href="/src/css/styles.css">
-    <link rel="stylesheet" href="/src/css/home-styles.css">
+    <link rel="stylesheet" href="/src/css/main.css">
 </head>
 
 <body>
-
+    <!-- Keep navbar-info-bar at the top level, outside any wrappers -->
     <div class="navbar-info-bar"></div>
-
-    <div class="navbar-main" id="dynamic-navbar">
-        <!-- Navbar Left section -->
-        <div class="navbar-left">
-            <ul class="navlinks">
-                <li><a href="#" class="nav-link active">HOME</a></li>
-                <li><a href="#" class="nav-link">ESPORTS</a></li>
-                <li><a href="#" class="nav-link">ABOUT US</a></li>
-                <li><a href="#" class="nav-link">COMMUNITY</a></li> 
-            </ul>
-        </div>
     
-        <!-- Navbar Center section -->
-        <div class="navbar-center">
-            <a href="/" class="logo">
-                <!-- We'll swap between these two logos -->
-                <img src="/public/img/logo_img.png" class="logo-white" alt="Invictus Logo">
-                <img src="/public/img/logo_img_dark.png" class="logo-dark" alt="Invictus Logo Dark">
-            </a>
-        </div>
-    
-        <!-- Navbar Right section -->
-        <div class="navbar-right">
-            <ul class="navlinks">
-                <li><a href="#" class="nav-link">ACCOUNT</a></li>
-                <li><a href="#" class="nav-link">CART</a></li>
-                <li>
-                    <a href="#" class="nav-link reg-selector">
-                        INT
-                        <img src="/public/icons/arrow_menu_ICN.png" alt="Region Selector" class="dropdown-icon">
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    
-    <!-- Video Player Section -->
-    <div class="video-player-background">
-
-        <div class="video-container">
-            <video id="home-video" autoplay loop playsinline muted>
-                <source src="/public/video/placeholder_vid.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <div class="video-overlay">
-            <div class="video-content">
-                <h1 class="home-video-title">WE ARE INVICTUS</h1>
-                <div class="home-video-subtitle">LEGENDS AREN'T BORN — THEY'RE MADE. RISE WITH US</div>
-                <div class="home-video-buttons">
-                    <a href="#teams" class="btn btn-primary">JOIN US NOW</a>
-                    <a href="#events" class="btn btn-secondary">WATCH US LIVE</a>
-                </div>
+    <div class="page-wrapper">
+        <!-- Navbar stays mostly the same, just wrapped in nav -->
+        <nav class="navbar-main" id="dynamic-navbar">
+            <!-- Navbar Left section -->
+            <div class="navbar-left">
+                <ul class="navlinks">
+                    <li><a href="/" class="nav-link active">HOME</a></li>
+                    <li><a href="/esports" class="nav-link">ESPORTS</a></li>
+                    <li><a href="/about" class="nav-link">ABOUT US</a></li>
+                    <li><a href="/community" class="nav-link">COMMUNITY</a></li> 
+                </ul>
             </div>
-        </div>
-
-        <div class="video-controls">
-            <button id="play-pause-btn" class="control-btn" aria-label="Play/Pause">
-                <span class="pause-icon">❚❚</span>
-                <span class="play-icon">▶</span>
-            </button>
-            <button id="mute-btn" class="control-btn" aria-label="Mute/Unmute">
-                <span class="unmute-icon">🔊</span>
-                <span class="mute-icon">🔇</span>
-            </button>
-        </div>
         
-    </div>
-    
-    <!-- Main Content Section -->
-    <div class="main-content">
-        <!-- News - Upcoming match - Articles -->
-        <div class="article-cards-section">
-            <div class="article-cards-container">
-
-            <div class="article-card">
-
+            <!-- Navbar Center section -->
+            <div class="navbar-center">
+                <a href="/" class="logo">
+                    <!-- We'll swap between these two logos -->
+                    <img src="/public/img/logo_img.png" class="logo-white" alt="Invictus Logo">
+                    <img src="/public/img/logo_img_dark.png" class="logo-dark" alt="Invictus Logo Dark">
+                </a>
+            </div>
+        
+            <!-- Navbar Right section -->
+            <div class="navbar-right">
+                <ul class="navlinks">
+                    <li><a href="/account" class="nav-link">ACCOUNT</a></li>
+                    <li><a href="/cart" class="nav-link">CART</a></li>
+                    <li>
+                        <a href="#" class="nav-link reg-selector">
+                            INT
+                            <img src="/public/icons/arrow_menu_ICN.png" alt="Region Selector" class="dropdown-icon">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+        <!-- Video Player Section - Now with more semantic markup -->
+        <section class="hero video-player-background">
+            <div class="video-container">
+                <video id="home-video" autoplay loop playsinline muted>
+                    <source src="/public/video/placeholder_vid.mp4" type="video/mp4">
+                </video>
             </div>
 
-            <div class="article-card">
-                
-            </div>
-
-            <div class="article-card">
-                
-            </div>
-
-
-            </div>
-        </div>
-
-        <!--Content Carousel - home page-->
-        <section class="content-carousel-section">
-            <div class="carousel-header">
-                <h2 class="carousel-title">
-                    <span class="title-normal">WE WILL</span>
-                    <span class="title-accent">ENTERTAIN</span>
-                    <span class="title-normal">YOU</span>
-                </h2>
-                
-                <div class="carousel-controls">
-                    <div class="carousel-text">WATCH OUR LATEST CONTENT</div>
-                    <a href="https://youtube.com/channel/your-channel-id" target="_blank" class="youtube-btn">WATCH ALL</a>
-                </div>
-            </div>
-            
-            <div class="carousel-container">
-                <button class="carousel-arrow prev-arrow">
-                    <span class="arrow-icon">❮</span>
-                </button>
-                
-                <div class="carousel-wrap">
-                    <div class="carousel-track">
-                        <!-- Video card 1 -->
-                        <div class="video-card">
-                            <a href="https://youtube.com/watch?v=video-id-1" target="_blank" class="video-link">
-                                <img src="/public/img/placeholder_thumb_img.png" alt="Video thumbnail" class="thumbnail-img">
-                            </a>
-                        </div>
-                        
-                        <!-- Video card 2 -->
-                        <div class="video-card">
-                            <a href="https://youtube.com/watch?v=video-id-2" target="_blank" class="video-link">
-                                <img src="/public/img/placeholder_thumb_img.png" alt="Video thumbnail" class="thumbnail-img">
-                            </a>
-                        </div>
-                        
-                        <!-- Video card 3 -->
-                        <div class="video-card">
-                            <a href="https://youtube.com/watch?v=video-id-3" target="_blank" class="video-link">
-                                <img src="/public/img/placeholder_thumb_img.png" alt="Video thumbnail" class="thumbnail-img">
-                            </a>
-                        </div>
-                        
-                        <!-- Additional hidden cards for carousel functionality -->
-                        <div class="video-card">
-                            <a href="https://youtube.com/watch?v=video-id-4" target="_blank" class="video-link">
-                                <img src="/public/img/placeholder_thumb_img.png" alt="Video thumbnail" class="thumbnail-img">
-                            </a>
-                        </div>
-                        
-                        <div class="video-card">
-                            <a href="https://youtube.com/watch?v=video-id-5" target="_blank" class="video-link">
-                                <img src="/public/img/placeholder_thumb_img.png" alt="Video thumbnail" class="thumbnail-img">
-                            </a>
-                        </div>
-
-                        <div class="video-card">
-                            <a href="https://youtube.com/watch?v=video-id-5" target="_blank" class="video-link">
-                                <img src="/public/img/placeholder_thumb_img.png" alt="Video thumbnail" class="thumbnail-img">
-                            </a>
-                        </div>
-
-                        <div class="video-card">
-                            <a href="https://youtube.com/watch?v=video-id-5" target="_blank" class="video-link">
-                                <img src="/public/img/placeholder_thumb_img.png" alt="Video thumbnail" class="thumbnail-img">
-                            </a>
-                        </div>
-
+            <div class="video-overlay">
+                <div class="video-content">
+                    <h1 class="home-video-title">WE ARE INVICTUS</h1>
+                    <p class="home-video-subtitle">LEGENDS AREN'T BORN — THEY'RE MADE. RISE WITH US</p>
+                    <div class="home-video-buttons">
+                        <a href="#teams" class="btn btn-primary">JOIN US NOW</a>
+                        <a href="#events" class="btn btn-secondary">WATCH US LIVE</a>
                     </div>
                 </div>
-                
-                <button class="carousel-arrow next-arrow">
-                    <span class="arrow-icon">❯</span>
+            </div>
+
+            <div class="video-controls">
+                <button id="play-pause-btn" class="control-btn" aria-label="Play/Pause">
+                    <span class="pause-icon">❚❚</span>
+                    <span class="play-icon">▶</span>
+                </button>
+                <button id="mute-btn" class="control-btn" aria-label="Mute/Unmute">
+                    <span class="unmute-icon">🔊</span>
+                    <span class="mute-icon">🔇</span>
                 </button>
             </div>
         </section>
-       
-
-        <!--Our teams section of the Menu page-->
-        <section class="teams-section">
-            <!--Teams Header-->
-            <div class="section-header">
-                <h2 class="section-title">OUR <span class="title-accent">TEAMS</span></h2>
-                <div class="section-subtitle">LEARN MORE ABOUT OUR SQUADS</div>
-            </div>
         
-            <!--Teams Container-->
-            <div class="teams-container">
-                <!--Teams Card for team 1-->
-                <div class="team-card">
-                    <img src="/public/img/team_card_img.png" alt="Valorant Team" class="team-img">
-                    <div class="team-link-container">
-                        <a href="#" class="team-link">VALORANT</a>
-                    </div>
-                </div>
-                
-                <!-- Team Card 2 -->
-                <div class="team-card">
-                    <img src="/public/img/team_card_img.png" alt="League of Legends Team" class="team-img">
-                    <div class="team-link-container">
-                        <a href="#" class="team-link">LEAGUE OF LEGENDS</a>
-                    </div>
-                </div>
-                
-                <!-- Team Card 3 -->
-                <div class="team-card">
-                    <img src="/public/img/team_card_img.png" alt="Counter-Strike Team" class="team-img">
-                    <div class="team-link-container">
-                        <a href="#" class="team-link">COUNTER-STRIKE</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- Main Content Section - Using main element -->
+        <main id="main-content" class="main-content">
+            <!-- News - Upcoming match - Articles -->
+            <section class="article-cards-section">
+                <h2 class="section-title visually-hidden">Latest News</h2>
+                <div class="article-cards-container">
+                    <article class="article-card">
+                        <!-- Card content -->
+                    </article>
 
-        <!--CTA Section-->
-        <div class="cta-div">
-            <section class="cta-section">
-                <div class="cta-container">
-                    <div class="cta-content">
-                        <h2 class="cta-title">JOIN OUR JOURNEY<br>BECOME A PARTNER</h2>
-                        <a href="/contact" class="cta-btn">LET'S CONNECT <span class="cta-arrow-icon">»</span></a>
-                    </div>
+                    <article class="article-card">
+                        <!-- Card content -->
+                    </article>
+
+                    <article class="article-card">
+                        <!-- Card content -->
+                    </article>
                 </div>
             </section>
-        </div>
+
+            <!--Content Carousel - home page-->
+            <section id="content" class="content-carousel-section">
+                <div class="carousel-header">
+                    <h2 class="carousel-title">
+                        <span class="title-normal">WE WILL</span>
+                        <span class="title-accent">ENTERTAIN</span>
+                        <span class="title-normal">YOU</span>
+                    </h2>
+                    
+                    <div class="carousel-controls">
+                        <div class="carousel-text">WATCH OUR LATEST CONTENT</div>
+                        <a href="https://youtube.com/channel/your-channel-id" target="_blank" class="youtube-btn">WATCH ALL</a>
+                    </div>
+                </div>
+                
+                <div class="carousel-container">
+                    <button class="carousel-arrow prev-arrow" aria-label="Previous video">
+                        <span class="arrow-icon">❮</span>
+                    </button>
+                    
+                    <div class="carousel-wrap">
+                        <div class="carousel-track">
+                            <!-- Video card 1 -->
+                            <div class="video-card">
+                                <a href="https://youtube.com/watch?v=video-id-1" target="_blank" class="video-link">
+                                    <img src="/public/img/placeholder_thumb_img.png" alt="Video thumbnail" class="thumbnail-img">
+                                </a>
+                            </div>
+                            
+                            <!-- Video card 2 -->
+                            <div class="video-card">
+                                <a href="https://youtube.com/watch?v=video-id-2" target="_blank" class="video-link">
+                                    <img src="/public/img/placeholder_thumb_img.png" alt="Video thumbnail" class="thumbnail-img">
+                                </a>
+                            </div>
+                            
+                            <!-- Video card 3 -->
+                            <div class="video-card">
+                                <a href="https://youtube.com/watch?v=video-id-3" target="_blank" class="video-link">
+                                    <img src="/public/img/placeholder_thumb_img.png" alt="Video thumbnail" class="thumbnail-img">
+                                </a>
+                            </div>
+                            
+                            <!-- Additional hidden cards for carousel functionality -->
+                            <div class="video-card">
+                                <a href="https://youtube.com/watch?v=video-id-4" target="_blank" class="video-link">
+                                    <img src="/public/img/placeholder_thumb_img.png" alt="Video thumbnail" class="thumbnail-img">
+                                </a>
+                            </div>
+                            
+                            <div class="video-card">
+                                <a href="https://youtube.com/watch?v=video-id-5" target="_blank" class="video-link">
+                                    <img src="/public/img/placeholder_thumb_img.png" alt="Video thumbnail" class="thumbnail-img">
+                                </a>
+                            </div>
+
+                            <div class="video-card">
+                                <a href="https://youtube.com/watch?v=video-id-6" target="_blank" class="video-link">
+                                    <img src="/public/img/placeholder_thumb_img.png" alt="Video thumbnail" class="thumbnail-img">
+                                </a>
+                            </div>
+
+                            <div class="video-card">
+                                <a href="https://youtube.com/watch?v=video-id-7" target="_blank" class="video-link">
+                                    <img src="/public/img/placeholder_thumb_img.png" alt="Video thumbnail" class="thumbnail-img">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="carousel-arrow next-arrow" aria-label="Next video">
+                        <span class="arrow-icon">❯</span>
+                    </button>
+                </div>
+            </section>
+           
+            <!--Our teams section-->
+            <section id="teams" class="teams-section">
+                <!--Teams Header-->
+                <div class="section-header">
+                    <h2 class="section-title">OUR <span class="title-accent">TEAMS</span></h2>
+                    <p class="section-subtitle">LEARN MORE ABOUT OUR SQUADS</p>
+                </div>
+            
+                <!--Teams Container-->
+                <div class="teams-container">
+                    <!--Teams Card for team 1-->
+                    <article class="team-card">
+                        <img src="/public/img/team_card_img.png" alt="Valorant Team" class="team-img">
+                        <div class="team-link-container">
+                            <a href="/teams/valorant" class="team-link">VALORANT</a>
+                        </div>
+                    </article>
+                    
+                    <!-- Team Card 2 -->
+                    <article class="team-card">
+                        <img src="/public/img/team_card_img.png" alt="League of Legends Team" class="team-img">
+                        <div class="team-link-container">
+                            <a href="/teams/lol" class="team-link">LEAGUE OF LEGENDS</a>
+                        </div>
+                    </article>
+                    
+                    <!-- Team Card 3 -->
+                    <article class="team-card">
+                        <img src="/public/img/team_card_img.png" alt="Counter-Strike Team" class="team-img">
+                        <div class="team-link-container">
+                            <a href="/teams/cs" class="team-link">COUNTER-STRIKE</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!--CTA Section-->
+            <div class="cta-div">
+                <section class="cta-section">
+                    <div class="cta-container">
+                        <div class="cta-content">
+                            <h2 class="cta-title">JOIN OUR JOURNEY<br>BECOME A PARTNER</h2>
+                            <a href="/contact" class="cta-btn">LET'S CONNECT <span class="cta-arrow-icon">»</span></a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer Section - now using footer element properly -->
+        <footer class="footer">
+            <div class="footer-container">
+                <!--Logo and Social media-->
+                <div class="footer-logo">
+                    <img src="/public/img/Logo_Icon_img.png" alt="Invictus Logo Icon">
+                    <div class="social-icons">
+                        <a href="https://discord.gg/invictus" target="_blank" class="social-icon discord">
+                            <img src="/public/icons/discord_icn.png" alt="Discord">
+                        </a>
+
+                        <a href="https://x.com/InvictusHQ_" target="_blank" class="social-icon twitter">
+                            <img src="/public/icons/twitter_icn.png" alt="Twitter">
+                        </a>
+
+                        <a href="https://tiktok.com/@invictus" target="_blank" class="social-icon tiktok">
+                            <img src="/public/icons/tiktok_icn.png" alt="TikTok">
+                        </a>
+
+                        <a href="https://youtube.com/invictus" target="_blank" class="social-icon youtube">
+                            <img src="/public/icons/youtube_icn.png" alt="YouTube">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Links Column 1 -->
+                <nav class="footer-links">
+                    <h3 class="footer-heading">INVICTUS ESPORTS</h3>
+                    <ul>
+                        <li><a href="/about">About us</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/business">Business Contact</a></li>
+                        <li><a href="/media">Media</a></li>
+                    </ul>
+                </nav>
+        
+                <!-- Links Column 2 -->
+                <nav class="footer-links">
+                    <h3 class="footer-heading">TEAMS</h3>
+                    <ul>
+                        <li><a href="/teams/valorant">Valorant</a></li>
+                        <li><a href="/teams/lol">League of Legends</a></li>
+                        <li><a href="/teams/cs">Counter-Strike</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <!-- Copyright Section -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright">© 2025 Invictus Esports. All Rights Reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="/privacy" class="legal-link">Privacy</a>
+                        <a href="/terms" class="legal-link">Terms</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
 
-    <!-- Footer Section - OUTSIDE of main-content -->
-    <footer class="footer">
-        <div class="footer-container">
-            <!--Logo and Social media-->
-            <div class="footer-logo">
-                <img src="/public/img/Logo_Icon_img.png" alt="Invictus Logo Icon">
-                <div class="social-icons">
-                    <a href="https://discord.gg/invictus" target="_blank" class="social-icon discord">
-                        <img src="/public/icons/discord_icn.png" alt="Discord">
-                    </a>
-
-                    <a href="https://x.com/InvictusHQ_" target="_blank" class="social-icon twitter">
-                        <img src="/public/icons/twitter_icn.png" alt="Twitter">
-                    </a>
-
-                    <a href="https://tiktok.com/@invictus" target="_blank" class="social-icon tiktok">
-                        <img src="/public/icons/tiktok_icn.png" alt="TikTok">
-                    </a>
-
-                    <a href="https://youtube.com/invictus" target="_blank" class="social-icon youtube">
-                        <img src="/public/icons/youtube_icn.png" alt="YouTube">
-                    </a>
-                </div>
-            </div>
-
-            <!-- Links Column 1 -->
-            <div class="footer-links">
-                <h3 class="footer-heading">INVICTUS ESPORTS</h3>
-                <ul>
-                    <li><a href="/about">About us</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                    <li><a href="/business">Business Contact</a></li>
-                    <li><a href="/media">Media</a></li>
-                </ul>
-            </div>
-    
-            <!-- Links Column 2 -->
-            <div class="footer-links">
-                <h3 class="footer-heading">TEAMS</h3>
-                <ul>
-                    <li><a href="/teams/valorant">Valorant</a></li>
-                    <li><a href="/teams/lol">League of Legends</a></li>
-                    <li><a href="/teams/cs">Counter-Strike</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <!-- Copyright Section -->
-        <div class="footer-bottom">
-            <div class="footer-bottom-content">
-                <p class="copyright">© 2025 Invictus Esports. All Rights Reserved.</p>
-                <div class="footer-legal-links">
-                    <a href="/privacy" class="legal-link">Privacy</a>
-                    <a href="/terms" class="legal-link">Terms</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="/src/js/main.js"></script>
+    <script type="module" src="/src/js/main.js"></script>
 </body>
 
 </html>

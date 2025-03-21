@@ -1,36 +1,227 @@
-/*Import Variables*/
-@import 'variables.css';
+/* ===== TYPOGRAPHY STYLES ===== */
 
-
-/*Typography styles*/ 
-
+/* Base typography classes */
 .heading {
-    font-family: var(--font-heading);
-    font-weight: 900; /* Black */
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-black);
+  line-height: var(--line-height-tight);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.subtitle {
+  font-family: var(--font-subtitle);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.body-text {
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  white-space: nowrap;
+}
+
+/* Heading size variants */
+.heading--xl {
+  font-size: var(--font-size-5xl);
+}
+
+.heading--large {
+  font-size: var(--font-size-4xl);
+}
+
+.heading--medium {
+  font-size: var(--font-size-3xl);
+}
+
+.heading--small {
+  font-size: var(--font-size-2xl);
+}
+
+/* Subtitle size variants */
+.subtitle--large {
+  font-size: var(--font-size-2xl);
+}
+
+.subtitle--medium {
+  font-size: var(--font-size-xl);
+}
+
+.subtitle--small {
+  font-size: var(--font-size-lg);
+}
+
+/* Body text size variants */
+.body-text--large {
+  font-size: var(--font-size-lg);
+}
+
+.body-text--medium {
+  font-size: var(--font-size-md);
+}
+
+.body-text--small {
+  font-size: var(--font-size-sm);
+}
+
+/* HTML element defaults */
+h1, h2 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-black);
+  line-height: var(--line-height-tight);
+  text-transform: uppercase;
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+}
+
+h3, h4, h5 {
+  font-family: var(--font-subtitle);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  text-transform: uppercase;
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+}
+
+p, li, a {
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Heading element sizes */
+h1 {
+  font-size: var(--font-size-4xl);
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+}
+
+h5 {
+  font-size: var(--font-size-lg);
+}
+
+/* Text alignment utilities */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* Text color utilities */
+.text-primary {
+  color: var(--color-text-primary);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-accent {
+  color: var(--color-text-accent);
+}
+
+.text-dark {
+  color: var(--color-text-dark);
+}
+
+/* Responsive typography adjustments */
+@media (max-width: 768px) {
+  h1 {
+    font-size: var(--font-size-3xl);
   }
   
-  .subtitle {
-    font-family: var(--font-subtitle);
-    font-weight: normal;
+  h2 {
+    font-size: var(--font-size-2xl);
   }
   
-  .body-text {
-    font-family: var(--font-body);
-    font-weight: normal;
+  h3 {
+    font-size: var(--font-size-xl);
   }
   
-  /* You can add more specific classes as needed */
-  h1, h2 {
-    font-family: var(--font-heading);
-    font-weight: 900;
+  h4 {
+    font-size: var(--font-size-lg);
   }
   
-  h3, h4, h5 {
-    font-family: var(--font-subtitle);
-    font-weight: normal;
+  h5 {
+    font-size: var(--font-size-md);
   }
   
-  p, li, a {
-    font-family: var(--font-body);
-    font-weight: normal;
+  .heading--xl {
+    font-size: var(--font-size-4xl);
   }
+
+  .heading--large {
+    font-size: var(--font-size-3xl);
+  }
+
+  .heading--medium {
+    font-size: var(--font-size-2xl);
+  }
+
+  .heading--small {
+    font-size: var(--font-size-xl);
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  h2 {
+    font-size: var(--font-size-xl);
+  }
+  
+  h3 {
+    font-size: var(--font-size-lg);
+  }
+  
+  .heading--xl {
+    font-size: var(--font-size-3xl);
+  }
+
+  .heading--large {
+    font-size: var(--font-size-2xl);
+  }
+
+  .heading--medium {
+    font-size: var(--font-size-xl);
+  }
+
+  .heading--small {
+    font-size: var(--font-size-lg);
+  }
+}

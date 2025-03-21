@@ -1,0 +1,175 @@
+/* ===== VIDEO HERO SECTION ===== */
+
+.video-player-background {
+    width: 100%;
+    height: 914px;
+    background-color: #1E1E1E;
+    position: relative;
+    z-index: 1;
+    margin-top: 0;
+    top: 0;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.video-content {
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+#home-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.home-video-title {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 64px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.home-video-subtitle {
+    font-family: var(--font-subtitle);
+    font-size: 32px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.home-video-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    font-family: var(--font-heading);
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #6b3fa8; /* Slightly darker shade of primary */
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.video-controls {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.control-btn {
+    background-color: rgba(0, 0, 0, 0.6);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.control-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Video control state indicators */
+#home-video.paused + .video-overlay + .video-controls #play-pause-btn .pause-icon {
+    display: none;
+}
+
+#home-video:not(.paused) + .video-overlay + .video-controls #play-pause-btn .play-icon {
+    display: none;
+}
+
+#home-video.muted + .video-overlay + .video-controls #mute-btn .unmute-icon {
+    display: none;
+}
+
+#home-video:not(.muted) + .video-overlay + .video-controls #mute-btn .mute-icon {
+    display: none;
+}
+
+/* Responsive styles for video hero */
+@media (max-width: 768px) {
+    .home-video-title {
+        font-size: 40px;
+    }
+    
+    .home-video-subtitle {
+        font-size: 24px;
+    }
+    
+    .btn {
+        padding: 12px 24px;
+    }
+    
+    .home-video-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-video-title {
+        font-size: 32px;
+    }
+    
+    .home-video-subtitle {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+}

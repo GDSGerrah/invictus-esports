@@ -1,0 +1,195 @@
+/* ===========================================
+   NAVIGATION & HEADER
+   =========================================== */
+
+/* ===== NAVIGATION ===== */
+/* Navbar Top Info Bar */
+.navbar-info-bar {
+    width: 100%;
+    height: 29px; /* You might need to adjust this */
+    background-color: var(--color-black); /* Make sure this token exists */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+}
+
+/* Navbar Main Section */
+.navbar-main {
+    width: 100%;
+    height: 88px;
+    position: fixed;
+    top: 29px;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--spacing-xl);
+    z-index: var(--z-fixed);
+    background-color: transparent;
+    box-sizing: border-box;
+    transition: all var(--transition-normal);
+}
+
+/* Navbar Layout Adjustments */
+.navbar-left {
+    flex: 0 0 auto;
+    margin-right: 230px;
+}
+
+.navbar-center {
+    flex: 0 0 auto;
+    z-index: var(--z-above);
+}
+
+.navbar-right {
+    flex: 0 0 auto;
+    margin-left: 382px;
+}
+
+/* Navbar Logo */
+.navbar-center img {
+    width: 314px;
+    height: 30px;
+    object-fit: contain;
+    transition: all var(--transition-normal);
+}
+
+/* Navbar Links */
+.navlinks {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-left .navlinks {
+    justify-content: flex-start;
+}
+
+.navbar-right .navlinks {
+    justify-content: flex-end;
+}
+
+.navlinks li {
+    margin: 0 var(--spacing-md);
+}
+
+/* Link styling - consolidated */
+.navlinks a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-black);
+    font-size: var(--font-size-xl);
+    text-transform: uppercase;
+    transition: color var(--transition-fast);
+}
+
+.navlinks a:hover,
+.navlinks a.active {
+    color: var(--color-accent);
+}
+
+/* Scrolled state changes */
+.navbar-main.scrolled {
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-md);
+}
+
+.navbar-main.scrolled .navlinks a {
+    color: var(--color-text-dark);
+}
+
+.navbar-main.scrolled .navlinks a:hover,
+.navbar-main.scrolled .navlinks a.active {
+    color: var(--color-accent);
+}
+
+/* Logo swapping */
+.navbar-main .logo-white {
+    display: block;
+}
+
+.navbar-main .logo-dark {
+    display: none;
+}
+
+.navbar-main.scrolled .logo-white {
+    display: none !important;
+}
+
+.navbar-main.scrolled .logo-dark {
+    display: block !important;
+}
+
+/* Dropdown icon */
+.reg-selector {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-icon {
+    height: 12px;
+    margin-left: var(--spacing-xs);
+    transition: filter var(--transition-fast);
+}
+
+/* Responsive styles */
+@media (max-width: 1600px) {
+    .navbar-left {
+        margin-right: var(--spacing-4xl);
+    }
+    
+    .navbar-right {
+        margin-left: var(--spacing-4xl);
+    }
+}
+
+@media (max-width: 1200px) {
+    .navbar-main {
+        padding: 0 var(--spacing-lg);
+    }
+    
+    .navbar-left {
+        margin-right: var(--spacing-xl);
+    }
+    
+    .navbar-right {
+        margin-left: var(--spacing-xl);
+    }
+
+    .navlinks a {
+        font-size: var(--font-size-lg);
+    }
+}
+
+@media (max-width: 992px) {
+    .navlinks li {
+        margin: 0 var(--spacing-sm);
+    }
+    
+    .navbar-left {
+        margin-right: var(--spacing-lg);
+    }
+    
+    .navbar-right {
+        margin-left: var(--spacing-lg);
+    }
+    
+    .navbar-center img {
+        width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-main {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .navbar-left, 
+    .navbar-right {
+        margin: var(--spacing-sm) 0;
+    }
+}
