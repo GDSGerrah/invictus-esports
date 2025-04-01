@@ -123,17 +123,104 @@
     display: block !important;
 }
 
-/* Dropdown icon */
-.reg-selector {
-    display: flex;
-    align-items: center;
+/* ===== DROPDOWN NAVIGATION ===== */
+
+/* Reset and ensure core dropdown positioning */
+.dropdown {
+  position: relative !important;
+  display: inline-block !important;
 }
 
-.dropdown-icon {
-    height: 12px;
-    margin-left: var(--spacing-xs);
-    transition: filter var(--transition-fast);
+/* The span/link that toggles the dropdown */
+.dropdown-toggle {
+  cursor: pointer !important;
+  display: inline-block !important;
+  color: var(--color-text-primary) !important;
+  text-decoration: none !important;
+  font-family: var(--font-heading) !important;
+  font-weight: var(--font-weight-black) !important;
+  font-size: var(--font-size-xl) !important;
+  text-transform: uppercase !important;
+  transition: color var(--transition-fast) !important;
 }
+
+/* Consistent dropdown menu styling */
+.dropdown-menu {
+  position: absolute !important;
+  top: 100% !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(-15px) !important;
+  min-width: 200px !important;
+  background-color: var(--color-gray-darkest) !important;
+  box-shadow: var(--shadow-md) !important;
+  z-index: var(--z-dropdown) !important;
+  padding: var(--spacing-sm) 0 !important;
+  border-radius: var(--radius-sm) !important;
+  margin-top: var(--spacing-xs) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease !important;
+  pointer-events: none !important; /* Initially disable pointer events */
+}
+
+/* Handle hover state with 3 different methods for maximum compatibility */
+.dropdown:hover .dropdown-menu,
+.dropdown.hover .dropdown-menu,
+.dropdown-menu.show {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateX(-50%) translateY(0) !important;
+  pointer-events: auto !important; /* Re-enable pointer events when visible */
+}
+
+/* Dropdown list standardization */
+.dropdown-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Dropdown link standardization */
+.dropdown-link {
+  display: block !important;
+  padding: var(--spacing-sm) var(--spacing-lg) !important;
+  color: var(--color-text-primary) !important;
+  text-decoration: none !important;
+  font-family: var(--font-heading) !important;
+  font-weight: var(--font-weight-bold) !important;
+  font-size: var(--font-size-md) !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  transition: color var(--transition-fast) !important;
+}
+
+/* Hover state for dropdown links */
+.dropdown-link:hover {
+  color: var(--color-accent) !important;
+}
+
+/* Scrolled state styling for dropdown menu */
+.navbar-main.scrolled .dropdown-menu {
+  background-color: var(--color-white) !important;
+  border: 1px solid var(--color-gray-light) !important;
+}
+
+.navbar-main.scrolled .dropdown-link {
+  color: var(--color-text-dark) !important;
+}
+
+.navbar-main.scrolled .dropdown-link:hover {
+  color: var(--color-accent) !important;
+}
+
+/* Accessibility focus state */
+.dropdown:focus-within .dropdown-menu {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateX(-50%) translateY(0) !important;
+  pointer-events: auto !important;
+}
+
 
 /* Responsive styles */
 @media (max-width: 1600px) {
@@ -191,5 +278,27 @@
     .navbar-left, 
     .navbar-right {
         margin: var(--spacing-sm) 0;
+    }
+
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        margin-top: 0;
+        padding: var(--spacing-sm) var(--spacing-md);
+        background-color: rgba(0, 0, 0, 0.1);
+        display: none;
+    }
+    
+    .dropdown-list {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .dropdown.active .dropdown-menu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
     }
 }

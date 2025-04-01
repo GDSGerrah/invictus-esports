@@ -13,10 +13,13 @@
 @import 'components/cta-section.css';
 @import 'components/footer.css'; 
 @import 'components/article-cards.css';
+@import 'components/timeline-carousel.css';
 
 
 /* General styles (will gradually extract components from here) */
 @import url("styles.css");
 
 /* Page-specific styles */
-@import url("home-styles.css");
+@import 'pages/home-styles.css';
+@import 'pages/esports-our-teams.css';
+@import 'pages/about-us.css';

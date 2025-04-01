@@ -1,5 +1,5 @@
 /**
- * Video Player Component
+ * Fixed Video Player Component
  * Handles video player functionality with play/pause and mute controls
  */
 
@@ -36,17 +36,24 @@ export default class VideoPlayer {
     this.playPauseBtn = getElement(this.options.playPauseSelector);
     this.muteBtn = getElement(this.options.muteSelector);
     
+    // Debug logging
+    console.log('VideoPlayer: Initializing with elements:', {
+      video: this.video,
+      playPauseBtn: this.playPauseBtn,
+      muteBtn: this.muteBtn
+    });
+    
     // Bind methods to preserve 'this' context
     this.togglePlayPause = this.togglePlayPause.bind(this);
     this.toggleMute = this.toggleMute.bind(this);
     this.updatePlayPauseUI = this.updatePlayPauseUI.bind(this);
     this.updateMuteUI = this.updateMuteUI.bind(this);
     
-    // Initialize if all required elements exist
-    if (this.video && this.playPauseBtn && this.muteBtn) {
+    // Initialize if video element exists
+    if (this.video) {
       this.init();
     } else {
-      console.warn('Video player elements not found in the DOM');
+      console.warn('Video player video element not found in the DOM');
     }
   }
   
@@ -54,6 +61,8 @@ export default class VideoPlayer {
    * Initialize video player functionality
    */
   init() {
+    console.log('VideoPlayer: Initializing player functionality');
+    
     // Set initial state
     this.video.muted = true;
     addClass(this.video, 'muted');
@@ -66,30 +75,138 @@ export default class VideoPlayer {
     this.updatePlayPauseUI();
     this.updateMuteUI();
     
-    // Add event listeners
-    addSafeEventListener(this.playPauseBtn, 'click', this.togglePlayPause);
-    addSafeEventListener(this.muteBtn, 'click', this.toggleMute);
+    // Clean up existing event listeners by cloning and replacing elements
+    if (this.playPauseBtn) {
+      const newPlayPauseBtn = this.playPauseBtn.cloneNode(true);
+      this.playPauseBtn.parentNode.replaceChild(newPlayPauseBtn, this.playPauseBtn);
+      this.playPauseBtn = newPlayPauseBtn;
+      
+      console.log('VideoPlayer: Adding click listener to play/pause button');
+      addSafeEventListener(this.playPauseBtn, 'click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('VideoPlayer: Play/pause button clicked');
+        this.togglePlayPause();
+      });
+    }
+    
+    if (this.muteBtn) {
+      const newMuteBtn = this.muteBtn.cloneNode(true);
+      this.muteBtn.parentNode.replaceChild(newMuteBtn, this.muteBtn);
+      this.muteBtn = newMuteBtn;
+      
+      console.log('VideoPlayer: Adding click listener to mute button');
+      addSafeEventListener(this.muteBtn, 'click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('VideoPlayer: Mute button clicked');
+        this.toggleMute();
+      });
+    }
     
     // Add video event listeners for syncing UI with video state
-    addSafeEventListener(this.video, 'play', this.updatePlayPauseUI);
-    addSafeEventListener(this.video, 'pause', this.updatePlayPauseUI);
-    addSafeEventListener(this.video, 'volumechange', this.updateMuteUI);
+    addSafeEventListener(this.video, 'play', () => {
+      console.log('VideoPlayer: Video play event');
+      removeClass(this.video, 'paused');
+      this.updatePlayPauseUI();
+    });
+    
+    addSafeEventListener(this.video, 'pause', () => {
+      console.log('VideoPlayer: Video pause event');
+      addClass(this.video, 'paused');
+      this.updatePlayPauseUI();
+    });
+    
+    addSafeEventListener(this.video, 'volumechange', () => {
+      console.log('VideoPlayer: Video volumechange event, muted:', this.video.muted);
+      if (this.video.muted) {
+        addClass(this.video, 'muted');
+      } else {
+        removeClass(this.video, 'muted');
+      }
+      this.updateMuteUI();
+    });
+    
+    // Direct click handlers for icons as fallback
+    this.addDirectIconHandlers();
+  }
+  
+  /**
+   * Add direct click handlers to icons as a fallback
+   */
+  addDirectIconHandlers() {
+    if (!this.playPauseBtn) return;
+    
+    const pauseIcon = this.playPauseBtn.querySelector(this.options.pauseIconSelector);
+    const playIcon = this.playPauseBtn.querySelector(this.options.playIconSelector);
+    
+    if (pauseIcon) {
+      addSafeEventListener(pauseIcon, 'click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('VideoPlayer: Pause icon clicked directly');
+        this.video.pause();
+        addClass(this.video, 'paused');
+        this.updatePlayPauseUI();
+      });
+    }
+    
+    if (playIcon) {
+      addSafeEventListener(playIcon, 'click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('VideoPlayer: Play icon clicked directly');
+        this.video.play().catch(err => console.error('VideoPlayer: Error playing video:', err));
+        removeClass(this.video, 'paused');
+        this.updatePlayPauseUI();
+      });
+    }
+    
+    if (!this.muteBtn) return;
+    
+    const muteIcon = this.muteBtn.querySelector(this.options.muteIconSelector);
+    const unmuteIcon = this.muteBtn.querySelector(this.options.unmuteIconSelector);
+    
+    if (muteIcon) {
+      addSafeEventListener(muteIcon, 'click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('VideoPlayer: Mute icon clicked directly');
+        this.video.muted = false;
+        removeClass(this.video, 'muted');
+        this.updateMuteUI();
+      });
+    }
+    
+    if (unmuteIcon) {
+      addSafeEventListener(unmuteIcon, 'click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('VideoPlayer: Unmute icon clicked directly');
+        this.video.muted = true;
+        addClass(this.video, 'muted');
+        this.updateMuteUI();
+      });
+    }
   }
   
   /**
    * Toggle play/pause state
    */
   togglePlayPause() {
+    console.log('VideoPlayer: Toggling play/pause, current paused state:', this.video.paused);
+    
     if (this.video.paused) {
       // Try to play the video
       const playPromise = this.video.play();
       
       if (playPromise !== undefined) {
         playPromise.then(() => {
+          console.log('VideoPlayer: Video playback started successfully');
           removeClass(this.video, 'paused');
           this.updatePlayPauseUI();
         }).catch(error => {
-          console.error("Play failed:", error);
+          console.error("VideoPlayer: Play failed:", error);
           // Ensure UI shows correct state on failure
           addClass(this.video, 'paused');
           this.updatePlayPauseUI();
@@ -97,6 +214,7 @@ export default class VideoPlayer {
       }
     } else {
       this.video.pause();
+      console.log('VideoPlayer: Video paused');
       addClass(this.video, 'paused');
       this.updatePlayPauseUI();
     }
@@ -107,6 +225,7 @@ export default class VideoPlayer {
    */
   toggleMute() {
     this.video.muted = !this.video.muted;
+    console.log('VideoPlayer: Toggled mute state to:', this.video.muted);
     
     if (this.video.muted) {
       addClass(this.video, 'muted');
@@ -121,17 +240,18 @@ export default class VideoPlayer {
    * Update play/pause button UI
    */
   updatePlayPauseUI() {
+    if (!this.playPauseBtn) return;
+    
     const pauseIcon = this.playPauseBtn.querySelector(this.options.pauseIconSelector);
     const playIcon = this.playPauseBtn.querySelector(this.options.playIconSelector);
     
     if (pauseIcon && playIcon) {
-      if (this.video.paused) {
-        pauseIcon.style.display = 'none';
-        playIcon.style.display = 'block';
-      } else {
-        pauseIcon.style.display = 'block';
-        playIcon.style.display = 'none';
-      }
+      console.log('VideoPlayer: Updating play/pause UI, paused:', this.video.paused);
+      
+      pauseIcon.style.display = this.video.paused ? 'none' : 'block';
+      playIcon.style.display = this.video.paused ? 'block' : 'none';
+    } else {
+      console.warn('VideoPlayer: Play/pause icons not found');
     }
   }
   
@@ -139,17 +259,18 @@ export default class VideoPlayer {
    * Update mute button UI
    */
   updateMuteUI() {
+    if (!this.muteBtn) return;
+    
     const unmuteIcon = this.muteBtn.querySelector(this.options.unmuteIconSelector);
     const muteIcon = this.muteBtn.querySelector(this.options.muteIconSelector);
     
     if (unmuteIcon && muteIcon) {
-      if (this.video.muted) {
-        unmuteIcon.style.display = 'none';
-        muteIcon.style.display = 'block';
-      } else {
-        unmuteIcon.style.display = 'block';
-        muteIcon.style.display = 'none';
-      }
+      console.log('VideoPlayer: Updating mute UI, muted:', this.video.muted);
+      
+      unmuteIcon.style.display = this.video.muted ? 'none' : 'block';
+      muteIcon.style.display = this.video.muted ? 'block' : 'none';
+    } else {
+      console.warn('VideoPlayer: Mute icons not found');
     }
   }
 }

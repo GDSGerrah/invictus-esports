@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Invictus Esports - Our mission, values and journey in competitive gaming">
+    <title>About Us | Invictus Esports</title>
+    <link rel="stylesheet" href="/src/css/main.css">
+    <link rel="stylesheet" href="/src/css/components/about-us.css">
+</head>
+
+<body>
+    <!-- Top info bar -->
+    <div class="navbar-info-bar"></div>
+    
+    <div class="page-wrapper">
+        <!-- Navbar with active classes for About page -->
+        <nav class="navbar-main" id="dynamic-navbar">
+            <!-- Navbar Left section -->
+            <div class="navbar-left">
+                <ul class="navlinks">
+                  <li><a href="/index.html" class="nav-link">HOME</a></li>
+                  <li class="dropdown">
+                    <span class="nav-link dropdown-toggle">ESPORTS</span>
+                    <div class="dropdown-menu">
+                      <ul class="dropdown-list">
+                        <li><a href="/src/pages/esport-schedule.html" class="dropdown-link">MATCH SCHEDULE</a></li>
+                        <li><a href="/src/pages/esport-our-teams.html" class="dropdown-link">OUR TEAMS</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li><a href="/src/pages/about.html" class="nav-link active">ABOUT US</a></li>
+                  <li><a href="/src/pages/community.html" class="nav-link">COMMUNITY</a></li>
+                </ul>
+              </div>
+        
+            <!-- Navbar Center section -->
+            <div class="navbar-center">
+                <a href="/index.html" class="logo">
+                    <img src="/public/img/logo_img.png" class="logo-white" alt="Invictus Logo">
+                    <img src="/public/img/logo_img_dark.png" class="logo-dark" alt="Invictus Logo Dark">
+                </a>
+            </div>
+        
+            <!-- Navbar Right section -->
+            <div class="navbar-right">
+                <ul class="navlinks">
+                    <li><a href="/account" class="nav-link">ACCOUNT</a></li>
+                    <li><a href="/cart" class="nav-link">CART</a></li>
+                    <li>
+                        <a href="#" class="nav-link reg-selector">
+                            INT
+                            <img src="/public/icons/arrow_menu_ICN.png" alt="Region Selector" class="dropdown-icon">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+        <!-- Hero Video Section -->
+        <section class="video-player-background">
+            <div class="video-container">
+                <video id="home-video" autoplay loop muted>
+                    <source src="/public/videos/about-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                
+                <div class="video-overlay">
+                    <div class="video-content">
+                        <h1 class="home-video-title">ABOUT US</h1>
+                        <p class="home-video-subtitle">OUR JOURNEY TO THE TOP</p>
+                    </div>
+                </div>
+                
+                <!-- Video controls -->
+                <div class="video-controls">
+                    <button id="play-pause-btn" class="control-btn">
+                        <span class="play-icon">▶</span>
+                        <span class="pause-icon">⏸</span>
+                    </button>
+                    <button id="mute-btn" class="control-btn">
+                        <span class="unmute-icon">🔊</span>
+                        <span class="mute-icon">🔇</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Content Section -->
+        <section class="about-section">
+            <div class="about-container">
+                <div class="about-content">
+                    <h2 class="section-title">WHO WE ARE</h2>
+                    
+                    <div class="about-text-image">
+                        <div class="about-text">
+                            <p class="about-paragraph">
+                                Established in 2024, Invictus Esports began from humble beginnings—driven by passion, 
+                                perseverance, and a genuine desire to overcome challenges. More than just a team, we're 
+                                building a community—a family where players, fans, and partners come together to 
+                                connect, compete, and grow. Here at Invictus, success isn't measured solely by today's 
+                                wins; it's about our steady commitment to improvement and the positive impact we make 
+                                along the way.
+                            </p>
+                            
+                            <p class="about-paragraph">
+                                Our journey rests on two simple yet powerful pillars: Relentless Drive and Passion for the 
+                                Game. These values keep us moving forward, learning from every challenge, and 
+                                supporting each other as we progress. We come from nothing, and that's what makes our 
+                                story real and relatable. Our fans and partners aren't just bystanders—they're part of our 
+                                shared "Shonen Run," a journey where every step matters.
+                            </p>
+                            
+                            <p class="about-paragraph">
+                                Right now, our Amateur Valorant team is our starting point, but we're setting our sights 
+                                higher. Our goal is to compete in the Tier/VCL (Valorant Challenger League) and beyond, 
+                                proving that Invictus can grow into a respected name in competitive gaming. We invite 
+                                you to follow our journey, join us in our efforts, and help shape a future where everyone 
+                                has a chance to rise together.
+                            </p>
+                        </div>
+                        
+                        <div class="image-placeholder"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Core Mission Section -->
+        <section class="mission-section">
+            <div class="mission-container">
+                <h2 class="mission-title">OUR CORE MISSION</h2>
+                
+                <div class="mission-cards">
+                    <!-- Mission Card 1 -->
+                    <div class="mission-card">
+                        <div class="mission-card-image"></div>
+                        <h3 class="mission-card-title">A RELENTLESS DRIVE TO WIN</h3>
+                        <div class="mission-card-content">
+                            <p class="mission-card-text">
+                                At Invictus, winning isn't just a goal—it's our way of life.
+                            </p>
+                            <p class="mission-card-text">
+                                We seek out players and build teams fueled by an unyielding hunger for victory, constantly pushing limits, refining skills, and dominating the competition.
+                            </p>
+                            <p class="mission-card-text">
+                                We embrace the grind, adapt, and evolve—all with the clear intent of one day becoming champions.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Mission Card 2 -->
+                    <div class="mission-card">
+                        <div class="mission-card-image"></div>
+                        <h3 class="mission-card-title">A HOME FOR ALL</h3>
+                        <div class="mission-card-content">
+                            <p class="mission-card-text">
+                                We strive to be more than just a team—Invictus is a family.
+                            </p>
+                            <p class="mission-card-text">
+                                We are committed to fostering a welcoming and supportive environment where players, fans, and creators can connect and grow together.
+                            </p>
+                            <p class="mission-card-text">
+                                Whether you're an aspiring pro, a content creator, or a casual gamer, there's a place for you here.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Mission Card 3 -->
+                    <div class="mission-card">
+                        <div class="mission-card-image"></div>
+                        <h3 class="mission-card-title">FUELED BY PASSION</h3>
+                        <div class="mission-card-content">
+                            <p class="mission-card-text">
+                                Esports is evolving, and Invictus is determined to be at the forefront of that change. We don't just want to be spectators—we want to be actors.
+                            </p>
+                            <p class="mission-card-text">
+                                From empowering new talent to building unforgettable moments, we're committed to being an active contributor in making the esports space better.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       <!-- History Timeline Section -->
+<section class="history-section">
+    <div class="history-container">
+        <h2 class="history-title">OUR HISTORY</h2>
+        
+        <!-- Timeline Navigation -->
+        <div class="timeline-nav">
+            <button class="timeline-year active" data-year="2025">2025</button>
+            <button class="timeline-year" data-year="2024">2024</button>
+            <button class="timeline-year" data-year="2023">2023</button>
+            <button class="timeline-year" data-year="2022">2022</button>
+        </div>
+        
+        <!-- Timeline Carousel - 2025 -->
+        <div class="timeline-carousel" data-year="2025">
+            <div class="carousel-container">
+                <div class="carousel-wrap">
+                    <div class="carousel-track">
+                        <!-- 2025 Card 1 -->
+                        <div class="video-card">
+                            <a href="#" class="video-link">
+                                <img src="/public/img/placeholder_thumb_img.png" alt="Event 2025-1" class="thumbnail-img">
+                            </a>
+                            <div class="card-content">
+                                <h3 class="card-title">Title text that goes with the history event</h3>
+                                <p class="card-description">
+                                    We seek out players and build teams fueled by an unyielding hunger for victory, constantly pushing limits, refining skills, and dominating the competition.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 2025 Card 2 -->
+                        <div class="video-card">
+                            <a href="#" class="video-link">
+                                <img src="/public/img/placeholder_thumb_img.png" alt="Event 2025-2" class="thumbnail-img">
+                            </a>
+                            <div class="card-content">
+                                <h3 class="card-title">Title text that goes with the history event</h3>
+                                <p class="card-description">
+                                    We seek out players and build teams fueled by an unyielding hunger for victory, constantly pushing limits, refining skills, and dominating the competition.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 2025 Card 3 -->
+                        <div class="video-card">
+                            <a href="#" class="video-link">
+                                <img src="/public/img/placeholder_thumb_img.png" alt="Event 2025-3" class="thumbnail-img">
+                            </a>
+                            <div class="card-content">
+                                <h3 class="card-title">Title text that goes with the history event</h3>
+                                <p class="card-description">
+                                    We seek out players and build teams fueled by an unyielding hunger for victory, constantly pushing limits, refining skills, and dominating the competition.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 2025 Card 4 -->
+                        <div class="video-card">
+                            <a href="#" class="video-link">
+                                <img src="/public/img/placeholder_thumb_img.png" alt="Event 2025-4" class="thumbnail-img">
+                            </a>
+                            <div class="card-content">
+                                <h3 class="card-title">Title text that goes with the history event</h3>
+                                <p class="card-description">
+                                    We seek out players and build teams fueled by an unyielding hunger for victory, constantly pushing limits, refining skills, and dominating the competition.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Carousel Navigation Arrows -->
+                <button class="carousel-arrow prev-arrow">&#10094;</button>
+                <button class="carousel-arrow next-arrow">&#10095;</button>
+            </div>
+        </div>
+        
+        <!-- Timeline Carousel - 2024 -->
+        <div class="timeline-carousel" data-year="2024" style="display: none;">
+            <div class="carousel-container">
+                <div class="carousel-wrap">
+                    <div class="carousel-track">
+                        <!-- 2024 Card 1 -->
+                        <div class="video-card">
+                            <a href="#" class="video-link">
+                                <img src="/public/img/placeholder_thumb_img.png" alt="Event 2024-1" class="thumbnail-img">
+                            </a>
+                            <div class="card-content">
+                                <h3 class="card-title">Title text that goes with the history event</h3>
+                                <p class="card-description">
+                                    We seek out players and build teams fueled by an unyielding hunger for victory, constantly pushing limits, refining skills, and dominating the competition.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 2024 Card 2 -->
+                        <div class="video-card">
+                            <a href="#" class="video-link">
+                                <img src="/public/img/placeholder_thumb_img.png" alt="Event 2024-2" class="thumbnail-img">
+                            </a>
+                            <div class="card-content">
+                                <h3 class="card-title">Title text that goes with the history event</h3>
+                                <p class="card-description">
+                                    We seek out players and build teams fueled by an unyielding hunger for victory, constantly pushing limits, refining skills, and dominating the competition.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 2024 Card 3 -->
+                        <div class="video-card">
+                            <a href="#" class="video-link">
+                                <img src="/public/img/placeholder_thumb_img.png" alt="Event 2024-3" class="thumbnail-img">
+                            </a>
+                            <div class="card-content">
+                                <h3 class="card-title">Title text that goes with the history event</h3>
+                                <p class="card-description">
+                                    We seek out players and build teams fueled by an unyielding hunger for victory, constantly pushing limits, refining skills, and dominating the competition.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 2024 Card 4 -->
+                        <div class="video-card">
+                            <a href="#" class="video-link">
+                                <img src="/public/img/placeholder_thumb_img.png" alt="Event 2024-4" class="thumbnail-img">
+                            </a>
+                            <div class="card-content">
+                                <h3 class="card-title">Title text that goes with the history event</h3>
+                                <p class="card-description">
+                                    We seek out players and build teams fueled by an unyielding hunger for victory, constantly pushing limits, refining skills, and dominating the competition.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Carousel Navigation Arrows -->
+                <button class="carousel-arrow prev-arrow">&#10094;</button>
+                <button class="carousel-arrow next-arrow">&#10095;</button>
+            </div>
+        </div>
+        
+        <!-- Timeline Carousel - 2023 -->
+        <div class="timeline-carousel" data-year="2023" style="display: none;">
+            <div class="carousel-container">
+                <div class="carousel-wrap">
+                    <div class="carousel-track">
+                        <!-- 2023 Card 1 -->
+                        <div class="video-card">
+                            <a href="#" class="video-link">
+                                <img src="/public/img/placeholder_thumb_img.png" alt="Event 2023-1" class="thumbnail-img">
+                            </a>
+                            <div class="card-content">
+                                <h3 class="card-title">Title text that goes with the history event</h3>
+                                <p class="card-description">
+                                    We seek out players and build teams fueled by an unyielding hunger for victory, constantly pushing limits, refining skills, and dominating the competition.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 2023 Card 2 -->
+                        <div class="video-card">
+                            <a href="#" class="video-link">
+                                <img src="/public/img/placeholder_thumb_img.png" alt="Event 2023-2" class="thumbnail-img">
+                            </a>
+                            <div class="card-content">
+                                <h3 class="card-title">Title text that goes with the history event</h3>
+                                <p class="card-description">
+                                    We seek out players and build teams fueled by an unyielding hunger for victory, constantly pushing limits, refining skills, and dominating the competition.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 2023 Card 3 -->
+                        <div class="video-card">
+                            <a href="#" class="video-link">
+                                <img src="/public/img/placeholder_thumb_img.png" alt="Event 2023-3" class="thumbnail-img">
+                            </a>
+                            <div class="card-content">
+                                <h3 class="card-title">Title text that goes with the history event</h3>
+                                <p class="card-description">
+                                    We seek out players and build teams fueled by an unyielding hunger for victory, constantly pushing limits, refining skills, and dominating the competition.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 2023 Card 4 -->
+                        <div class="video-card">
+                            <a href="#" class="video-link">
+                                <img src="/public/img/placeholder_thumb_img.png" alt="Event 2023-4" class="thumbnail-img">
+                            </a>
+                            <div class="card-content">
+                                <h3 class="card-title">Title text that goes with the history event</h3>
+                                <p class="card-description">
+                                    We seek out players and build teams fueled by an unyielding hunger for victory, constantly pushing limits, refining skills, and dominating the competition.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Carousel Navigation Arrows -->
+                <button class="carousel-arrow prev-arrow">&#10094;</button>
+                <button class="carousel-arrow next-arrow">&#10095;</button>
+            </div>
+        </div>
+        
+        <!-- Timeline Carousel - 2022 -->
+        <div class="timeline-carousel" data-year="2022" style="display: none;">
+            <div class="carousel-container">
+                <div class="carousel-wrap">
+                    <div class="carousel-track">
+                        <!-- 2022 Card 1 -->
+                        <div class="video-card">
+                            <a href="#" class="video-link">
+                                <img src="/public/img/placeholder_thumb_img.png" alt="Event 2022-1" class="thumbnail-img">
+                            </a>
+                            <div class="card-content">
+                                <h3 class="card-title">Title text that goes with the history event</h3>
+                                <p class="card-description">
+                                    We seek out players and build teams fueled by an unyielding hunger for victory, constantly pushing limits, refining skills, and dominating the competition.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 2022 Card 2 -->
+                        <div class="video-card">
+                            <a href="#" class="video-link">
+                                <img src="/public/img/placeholder_thumb_img.png" alt="Event 2022-2" class="thumbnail-img">
+                            </a>
+                            <div class="card-content">
+                                <h3 class="card-title">Title text that goes with the history event</h3>
+                                <p class="card-description">
+                                    We seek out players and build teams fueled by an unyielding hunger for victory, constantly pushing limits, refining skills, and dominating the competition.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 2022 Card 3 -->
+                        <div class="video-card">
+                            <a href="#" class="video-link">
+                                <img src="/public/img/placeholder_thumb_img.png" alt="Event 2022-3" class="thumbnail-img">
+                            </a>
+                            <div class="card-content">
+                                <h3 class="card-title">Title text that goes with the history event</h3>
+                                <p class="card-description">
+                                    We seek out players and build teams fueled by an unyielding hunger for victory, constantly pushing limits, refining skills, and dominating the competition.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 2022 Card 4 -->
+                        <div class="video-card">
+                            <a href="#" class="video-link">
+                                <img src="/public/img/placeholder_thumb_img.png" alt="Event 2022-4" class="thumbnail-img">
+                            </a>
+                            <div class="card-content">
+                                <h3 class="card-title">Title text that goes with the history event</h3>
+                                <p class="card-description">
+                                    We seek out players and build teams fueled by an unyielding hunger for victory, constantly pushing limits, refining skills, and dominating the competition.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Carousel Navigation Arrows -->
+                <button class="carousel-arrow prev-arrow">&#10094;</button>
+                <button class="carousel-arrow next-arrow">&#10095;</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Footer Section -->
+        <footer class="footer">
+            <div class="footer-container">
+                <!--Logo and Social media-->
+                <div class="footer-logo">
+                    <img src="/public/img/Logo_Icon_img.png" alt="Invictus Logo Icon">
+                    <div class="social-icons">
+                        <a href="https://discord.gg/invictus" target="_blank" class="social-icon discord">
+                            <img src="/public/icons/discord_icn.png" alt="Discord">
+                        </a>
+
+                        <a href="https://x.com/InvictusHQ_" target="_blank" class="social-icon twitter">
+                            <img src="/public/icons/twitter_icn.png" alt="Twitter">
+                        </a>
+
+                        <a href="https://tiktok.com/@invictus" target="_blank" class="social-icon tiktok">
+                            <img src="/public/icons/tiktok_icn.png" alt="TikTok">
+                        </a>
+
+                        <a href="https://youtube.com/invictus" target="_blank" class="social-icon youtube">
+                            <img src="/public/icons/youtube_icn.png" alt="YouTube">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Links Column 1 -->
+                <nav class="footer-links">
+                    <h3 class="footer-heading">INVICTUS ESPORTS</h3>
+                    <ul>
+                        <li><a href="/src/pages/about.html">About us</a></li>
+                        <li><a href="/src/pages/contact.html">Contact</a></li>
+                        <li><a href="/src/pages/business.html">Business Contact</a></li>
+                        <li><a href="/src/pages/media.html">Media</a></li>
+                    </ul>
+                </nav>
+        
+                <!-- Links Column 2 -->
+                <nav class="footer-links">
+                    <h3 class="footer-heading">TEAMS</h3>
+                    <ul>
+                        <li><a href="/src/pages/teams/valorant.html">Valorant</a></li>
+                        <li><a href="/src/pages/teams/lol.html">League of Legends</a></li>
+                        <li><a href="/src/pages/teams/cs.html">Counter-Strike</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <!-- Copyright Section -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright">© 2025 Invictus Esports. All Rights Reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="/src/pages/privacy.html" class="legal-link">Privacy</a>
+                        <a href="/src/pages/terms.html" class="legal-link">Terms</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="/src/js/utils/dropdown-fix.js"></script>
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

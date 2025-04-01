@@ -1,0 +1,199 @@
+/* ===== ESPORTS TEAMS PAGE STYLES ===== */
+
+/* Extend the teams-section for our specific page */
+.teams-page-header {
+    width: 100%;
+    padding-top: 130px; /* Space between navbar and title */
+    text-align: center;
+}
+
+.teams-page-title {
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-black);
+    font-size: 80px; /* 80px as specified */
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    letter-spacing: var(--letter-spacing-wide);
+    margin-bottom: var(--spacing-lg);
+}
+
+.teams-page-subtitle {
+    font-family: var(--font-body); /* SF Pro */
+    font-size: 25px; /* 36px as specified */
+    color: var(--color-text-primary);
+    max-width: 960px;
+    margin: 0 auto var(--spacing-4xl); /* 150px (approx 6rem) to team cards */
+    line-height: var(--line-height-normal);
+    padding: 0 var(--spacing-lg);
+}
+
+/* Team cards container - extend the teams-container */
+.esports-teams-container {
+    max-width: var(--container-full);
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: var(--spacing-2xl); /* Larger gap between esports cards */
+    box-sizing: border-box;
+}
+
+/* Individual team card - use existing team-card with adjustments */
+.esports-team-card {
+    width: 571px;
+    height: 736px;
+    background-color: var(--color-gray-darkest);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-normal);
+    flex: 0 0 auto;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+}
+
+.esports-team-card:hover {
+    transform: translateY(calc(var(--spacing-xs) * -1));
+    box-shadow: var(--shadow-lg);
+}
+
+.esports-team-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.esports-team-card:hover .esports-team-img {
+    transform: scale(1.05);
+}
+
+.esports-team-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: var(--spacing-lg) 0;
+}
+
+.esports-team-link {
+    display: inline-block;
+    font-family: var(--font-headingItalic);
+    font-weight: var(--font-weight-black);
+    font-size: var(--font-size-2xl);
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.esports-team-link:hover {
+    color: var(--color-accent);
+}
+
+/* Responsive styles */
+@media (max-width: 1800px) {
+    .esports-team-card {
+        width: 500px;
+        height: 650px;
+    }
+    
+    .teams-page-title {
+        font-size: var(--font-size-5xl); /* Use token instead of fixed px */
+    }
+    
+    .teams-page-subtitle {
+        font-size: var(--font-size-2xl);
+    }
+}
+
+@media (max-width: 1600px) {
+    .esports-team-card {
+        width: 450px;
+        height: 600px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .esports-teams-container {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: var(--spacing-lg);
+    }
+    
+    .esports-team-card {
+        width: 400px;
+        height: 520px;
+    }
+    
+    .teams-page-subtitle {
+        max-width: 800px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .esports-team-card {
+        height: 480px;
+    }
+    
+    .teams-page-title {
+        font-size: var(--font-size-4xl);
+    }
+    
+    .teams-page-subtitle {
+        font-size: var(--font-size-xl);
+    }
+}
+
+@media (max-width: 992px) {
+    .esports-team-card {
+        width: 350px;
+        height: 450px;
+    }
+    
+    .teams-page-header {
+        padding-top: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .esports-teams-container {
+        flex-direction: column;
+        align-items: center;
+        overflow-x: visible;
+    }
+    
+    .esports-team-card {
+        width: 90%;
+        max-width: 500px;
+        height: 500px;
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .teams-page-title {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .teams-page-subtitle {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--spacing-2xl);
+    }
+    
+    .teams-page-header {
+        padding-top: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .teams-page-title {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .teams-page-subtitle {
+        font-size: var(--font-size-md);
+    }
+}

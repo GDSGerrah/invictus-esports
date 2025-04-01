@@ -100,12 +100,16 @@
     background-color: rgba(255, 255, 255, 0.1);
 }
 
+/* ===== VIDEO CONTROLS ===== */
+/* Enhanced controls with better positioning and visibility */
+
 .video-controls {
     position: absolute;
     bottom: 30px;
     right: 30px;
     display: flex;
     gap: 15px;
+    z-index: 100; /* Ensure buttons are above all other elements */
 }
 
 .control-btn {
@@ -120,27 +124,105 @@
     align-items: center;
     justify-content: center;
     transition: background-color 0.3s ease;
+    position: relative; /* Enable proper stacking context */
+    z-index: 10; /* Higher than surrounding elements */
+    padding: 0; /* Reset padding that might interfere with layout */
 }
 
 .control-btn:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Video control state indicators */
+/* Improve visibility of control icons */
+.control-btn .play-icon,
+.control-btn .pause-icon,
+.control-btn .mute-icon,
+.control-btn .unmute-icon {
+    font-size: 16px; /* Standardize font size */
+    position: absolute; /* Use absolute positioning for better control */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center precisely */
+    width: 100%;
+    height: 100%;
+    display: flex !important; /* Use !important to override any inline styles */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Fix initial visibility state of icons */
+.control-btn .play-icon {
+    display: block !important;
+}
+
+.control-btn .pause-icon {
+    display: none !important;
+}
+
+.control-btn .mute-icon {
+    display: block !important;
+}
+
+.control-btn .unmute-icon {
+    display: none !important;
+}
+
+/* Video state class overrides using multiple selector patterns for best compatibility */
+.video-container:has(video.paused) .pause-icon,
+#home-video.paused ~ .video-controls #play-pause-btn .pause-icon {
+    display: none !important;
+}
+
+.video-container:has(video.paused) .play-icon,
+#home-video.paused ~ .video-controls #play-pause-btn .play-icon {
+    display: block !important;
+}
+
+.video-container:has(video:not(.paused)) .pause-icon,
+#home-video:not(.paused) ~ .video-controls #play-pause-btn .pause-icon {
+    display: block !important;
+}
+
+.video-container:has(video:not(.paused)) .play-icon,
+#home-video:not(.paused) ~ .video-controls #play-pause-btn .play-icon {
+    display: none !important;
+}
+
+.video-container:has(video.muted) .unmute-icon,
+#home-video.muted ~ .video-controls #mute-btn .unmute-icon {
+    display: none !important;
+}
+
+.video-container:has(video.muted) .mute-icon,
+#home-video.muted ~ .video-controls #mute-btn .mute-icon {
+    display: block !important;
+}
+
+.video-container:has(video:not(.muted)) .unmute-icon,
+#home-video:not(.muted) ~ .video-controls #mute-btn .unmute-icon {
+    display: block !important;
+}
+
+.video-container:has(video:not(.muted)) .mute-icon,
+#home-video:not(.muted) ~ .video-controls #mute-btn .mute-icon {
+    display: none !important;
+}
+
+/* Original selector patterns as fallbacks */
 #home-video.paused + .video-overlay + .video-controls #play-pause-btn .pause-icon {
-    display: none;
+    display: none !important;
 }
 
 #home-video:not(.paused) + .video-overlay + .video-controls #play-pause-btn .play-icon {
-    display: none;
+    display: none !important;
 }
 
 #home-video.muted + .video-overlay + .video-controls #mute-btn .unmute-icon {
-    display: none;
+    display: none !important;
 }
 
 #home-video:not(.muted) + .video-overlay + .video-controls #mute-btn .mute-icon {
-    display: none;
+    display: none !important;
 }
 
 /* Responsive styles for video hero */
@@ -161,6 +243,16 @@
         flex-direction: column;
         gap: 15px;
     }
+    
+    .video-controls {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .control-btn {
+        width: 36px;
+        height: 36px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -171,5 +263,15 @@
     .home-video-subtitle {
         font-size: 18px;
         margin-bottom: 30px;
+    }
+    
+    .video-controls {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .control-btn {
+        width: 32px;
+        height: 32px;
     }
 }

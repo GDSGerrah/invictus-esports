@@ -1,0 +1,378 @@
+/* ===== HISTORY TIMELINE COMPONENT FIXES ===== */
+
+.history-section {
+    width: 100%;
+    height: auto;
+    background-color: var(--color-gray-darkest);
+    padding: var(--spacing-3xl) 0 82px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    z-index: 1; /* Ensure proper stacking context */
+}
+
+.history-container {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    position: relative;
+    z-index: 2; /* Higher than section */
+}
+
+.history-title {
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-black);
+    font-size: var(--font-size-4xl);
+    line-height: var(--line-height-tight);
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-3xl);
+    letter-spacing: var(--letter-spacing-wide);
+    color: var(--color-text-primary);
+    position: relative;
+    z-index: 2; /* Ensure title is above other elements */
+}
+
+/* Timeline Navigation - Fixed for better z-index handling */
+.timeline-nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-3xl);
+    gap: var(--spacing-xl);
+    position: relative;
+    z-index: 3; /* Ensure navigation is above content */
+    background-color: var(--color-gray-darkest); /* Ensure proper background */
+}
+
+.timeline-year {
+    background: none;
+    border: none;
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-xl);
+    color: var(--color-gray-medium);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    cursor: pointer;
+    transition: color var(--transition-normal);
+    position: relative;
+    z-index: 1;
+}
+
+.timeline-year:hover {
+    color: var(--color-text-primary);
+}
+
+.timeline-year.active {
+    color: var(--color-text-primary);
+    position: relative;
+}
+
+.timeline-year.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 3px;
+    background-color: var(--color-accent);
+}
+
+/* ===== FIXED CAROUSEL LAYOUT ===== */
+
+/* Fixed container with proper Z-index */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: var(--spacing-3xl);
+    padding: 0 82px;
+    box-sizing: border-box;
+    z-index: 2; /* Ensure proper stacking */
+    background-color: var(--color-gray-darkest); /* Fixed background */
+}
+
+/* Fixed carousel wrap with proper sizing at different breakpoints */
+.carousel-wrap {
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    z-index: 1;
+    background-color: var(--color-gray-darkest); /* Fixed background */
+}
+
+/* Large screens - 3 cards */
+@media (min-width: 1400px) {
+    .carousel-wrap {
+        width: calc(100% - 164px); /* Account for padding */
+        max-width: calc(754px * 3 + var(--spacing-lg) * 2); /* 3 cards + gaps */
+    }
+}
+
+/* Medium screens - 2 cards */
+@media (min-width: 992px) and (max-width: 1399px) {
+    .carousel-wrap {
+        width: calc(100% - 164px); /* Account for padding */
+        max-width: calc(754px * 2 + var(--spacing-lg)); /* 2 cards + gap */
+    }
+}
+
+/* Fixed carousel track with proper flex layout */
+.carousel-track {
+    display: flex;
+    transition: transform var(--transition-slow);
+    gap: var(--spacing-lg);
+    box-sizing: border-box;
+    position: relative;
+    background-color: var(--color-gray-darkest); /* Fixed background */
+}
+
+/* Ensure proper track width at different screen sizes */
+@media (min-width: 1400px) {
+    .carousel-track {
+        width: max-content; /* Let content determine width */
+        min-width: 100%; /* At least fill container */
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1399px) {
+    .carousel-track {
+        width: max-content; /* Let content determine width */
+        min-width: 100%; /* At least fill container */
+    }
+}
+
+/* ===== FIXED CARD STYLES ===== */
+
+/* Fixed card styles with proper flex properties */
+.video-card {
+    flex: 0 0 auto; /* Don't grow, don't shrink, use auto basis */
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: var(--color-gray-dark);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensure proper card sizing at different breakpoints */
+@media (min-width: 1400px) {
+    .video-card {
+        width: 754px; /* Fixed width for large screens */
+        max-width: 754px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1399px) {
+    .video-card {
+        width: 754px; /* Fixed width for medium screens */
+        max-width: 754px;
+    }
+}
+
+@media (max-width: 991px) {
+    .video-card {
+        width: 100%; /* Full width for small screens */
+    }
+}
+
+/* Fix for card image and sizing */
+.video-link {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+@media (min-width: 992px) {
+    .video-link {
+        height: 425px;
+    }
+}
+
+@media (max-width: 991px) {
+    .video-link {
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+}
+
+.thumbnail-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+/* Card content with proper spacing */
+.card-content {
+    padding: var(--spacing-lg);
+    flex-grow: 1; /* Take remaining space */
+    background-color: var(--color-gray-dark); /* Ensure background */
+}
+
+.card-title {
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-lg);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.card-description {
+    font-family: var(--font-body);
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-normal);
+    color: var(--color-gray-light);
+}
+
+/* ===== FIXED CAROUSEL NAVIGATION ===== */
+
+/* Fixed carousel arrows with proper positioning and z-index */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-accent);
+    color: var(--color-text-primary);
+    border: none;
+    border-radius: 0;
+    font-size: var(--font-size-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10; /* Higher z-index to ensure visibility */
+    transition: background-color var(--transition-normal);
+    padding: 0;
+}
+
+.carousel-arrow:hover {
+    background-color: var(--color-accent-dark);
+}
+
+.carousel-arrow:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.prev-arrow {
+    left: 0;
+}
+
+.next-arrow {
+    right: 0;
+}
+
+.arrow-icon {
+    line-height: 1;
+}
+
+/* ===== CRITICAL FIXES FOR SPECIFIC ISSUES ===== */
+
+/* Fix for third card overlapping second card */
+.carousel-track .video-card:nth-child(3) {
+    position: relative;
+    left: auto !important; /* Remove any absolute positioning */
+    transform: none !important; /* Remove any transforms */
+}
+
+/* Fix for transparent background when changing years */
+.timeline-year-content {
+    background-color: var(--color-gray-darkest);
+    position: relative;
+    z-index: 1;
+}
+
+/* Ensure proper positioning for year tabs */
+.timeline-nav .timeline-year.active {
+    z-index: 3;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+
+@media (max-width: 1920px) {
+    .carousel-container {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 1600px) {
+    .history-title {
+        font-size: var(--font-size-4xl);
+    }
+    
+    .video-card {
+        width: 700px;
+    }
+    
+    .video-link {
+        height: 394px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .history-title {
+        font-size: var(--font-size-3xl);
+    }
+
+    .timeline-nav {
+        gap: var(--spacing-lg);
+    }
+    
+    .timeline-year {
+        font-size: var(--font-size-lg);
+    }
+}
+
+@media (max-width: 991px) {
+    .carousel-track {
+        width: 100%;
+    }
+    
+    .carousel-wrap {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .history-section {
+        height: auto;
+        padding: var(--spacing-xl) 0;
+    }
+
+    .history-title {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .timeline-nav {
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+    }
+
+    .carousel-track {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .history-title {
+        font-size: var(--font-size-xl);
+    }
+    
+    .carousel-arrow {
+        width: 40px;
+        height: 40px;
+    }
+}
